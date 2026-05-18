@@ -1,0 +1,20 @@
+import React from "react";
+import Hero from "./components/section/Hero";
+import Services from "./components/section/Services";
+import Results from "./components/section/Results";
+import Reviews from "./components/section/Reviews";
+import Pricing from "./components/section/Pricing";
+import Contact from "./components/section/Contact";
+
+export default function Home() {
+  return (
+    <div className="w-full bg-black overflow-hidden">
+      <Hero />
+      <Services />
+      <Results />
+      <Reviews />
+      <Pricing />
+      <Contact />
+    </div>
+  );
+}
