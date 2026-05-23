@@ -5,6 +5,7 @@ import Results from "./components/section/Results";
 import Reviews from "./components/section/Reviews";
 import Pricing from "./components/section/Pricing";
 import Contact from "./components/section/Contact";
+import WorkFlows from "./components/section/Workflow";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <Hero />
       <Services />
       <Results />
+      <WorkFlows />
       <Reviews />
       <Pricing />
       <Contact />

@@ -1,0 +1,413 @@
+"use client";
+
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import {
+  Monitor,
+  Smartphone,
+  Code2,
+  Layers,
+  ShieldCheck,
+  TrendingUp,
+  Cpu,
+  Globe,
+  GitMerge,
+  Zap,
+  Lock,
+  BarChart3,
+} from "lucide-react";
+
+/* ── Service Data ──────────────────────────────────────────────── */
+const workflowsData = [
+  {
+    icon: <Monitor size={32} />,
+    title: "Web App Development",
+    description:
+      "High-performance, secure web applications built with cutting-edge frameworks — from dynamic SPAs to complex enterprise portals that scale effortlessly.",
+    color: "#9cfeca",
+    stat: "100+",
+    statLabel: "Apps Shipped",
+  },
+  {
+    icon: <Smartphone size={32} />,
+    title: "Mobile Apps (Android & iOS)",
+    description:
+      "Cross-platform and native mobile experiences with smooth animations, offline support, and pixel-perfect design that users actually love.",
+    color: "#3ae7b5",
+    stat: "50+",
+    statLabel: "Apps Live",
+  },
+  {
+    icon: <Code2 size={32} />,
+    title: "API & Backend Engineering",
+    description:
+      "Robust RESTful and GraphQL APIs, microservices, and cloud-native backends architected for reliability, speed, and seamless third-party integrations.",
+    color: "#07694a",
+    stat: "99.9%",
+    statLabel: "Uptime SLA",
+  },
+  {
+    icon: <Layers size={32} />,
+    title: "UI/UX & Design Systems",
+    description:
+      "Immersive, user-centric interfaces and scalable design systems that bridge aesthetics with function — from wireframes to production-ready components.",
+    color: "#9cfeca",
+    stat: "10x",
+    statLabel: "Engagement",
+  },
+  {
+    icon: <ShieldCheck size={32} />,
+    title: "Support, Security & Growth",
+    description:
+      "24/7 monitoring, penetration testing, SEO, and performance optimization. We keep your product secure, fast, and growing long after launch.",
+    color: "#3ae7b5",
+    stat: "24/7",
+    statLabel: "Always On",
+  },
+];
+
+/* ── Visual helpers ─────────────────────────────────────────────── */
+const GlowOrb = ({ color }: { color: string }) => (
+  <div
+    className="absolute w-[340px] h-[340px] rounded-full blur-[70px] -z-10 will-change-transform transform-gpu bg-[radial-gradient(circle,var(--orb-color)_0%,transparent_70%)]"
+    style={{ "--orb-color": `${color}28` } as React.CSSProperties}
+  />
+);
+
+const CenterBall = ({
+  color,
+  icon,
+  stat,
+  label,
+}: {
+  color: string;
+  icon: React.ReactNode;
+  stat: string;
+  label: string;
+}) => (
+  <div
+    className="relative w-[230px] h-[230px] rounded-full flex flex-col items-center justify-center z-10 select-none border border-[var(--color-40)] bg-[#050a07] shadow-[0_0_60px_var(--color-40),inset_0_0_30px_var(--color-0a)] will-change-transform transform-gpu"
+    style={{
+      "--color-40": `${color}40`,
+      "--color-0a": `${color}0a`,
+    } as React.CSSProperties}
+  >
+    <div style={{ color }} className="mb-2">
+      {icon}
+    </div>
+    <span className="text-5xl font-extrabold text-white tracking-tighter">{stat}</span>
+    <span
+      className="text-[10px] tracking-widest font-semibold uppercase mt-1"
+      style={{ color }}
+    >
+      {label}
+    </span>
+  </div>
+);
+
+/* ── Visual 0: Web App ─────────────────────────────────────────── */
+const Visual0 = () => {
+  const positions = ["top-[8%] left-[12%]", "top-[10%] right-[8%]", "bottom-[8%] left-[36%]"];
+  return (
+    <div className="relative w-full flex items-center justify-center py-10 min-h-[360px]">
+      <GlowOrb color="#9cfeca" />
+      <motion.div
+        animate={{ rotate: 360 }}
+        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+        className="absolute w-[300px] h-[300px] rounded-full border border-dashed border-[#9cfeca22] will-change-transform"
+      />
+      <CenterBall color="#9cfeca" icon={<Monitor size={32} strokeWidth={1.5} />} stat="100+" label="Apps Shipped" />
+      
+      {["<App/>", "{API}", "</div>"].map((tag, i) => (
+        <motion.div
+          key={tag}
+          animate={{ y: [0, -8 - i * 2, 0] }}
+          transition={{ duration: 3.5 + i * 0.6, repeat: Infinity, ease: "easeInOut", delay: i * 0.5 }}
+          className={`absolute px-3 py-1.5 rounded-lg text-[11px] font-mono font-bold z-20 border border-[#9cfeca22] bg-[#050a07] text-[#9cfeca] shadow-[0_0_16px_#9cfeca18] will-change-transform ${positions[i]}`}
+        >
+          {tag}
+        </motion.div>
+      ))}
+    </div>
+  );
+};
+
+/* ── Visual 1: Mobile Apps ─────────────────────────────────────── */
+const Visual1 = () => (
+  <div className="relative w-full flex items-center justify-center py-10 min-h-[360px]">
+    <GlowOrb color="#3ae7b5" />
+    {[1, 2, 3].map((i) => (
+      <motion.div
+        key={i}
+        animate={{ scale: [1, 1.15 + i * 0.08, 1], opacity: [0.15, 0, 0.15] }}
+        transition={{ duration: 2.5 + i * 0.5, repeat: Infinity, ease: "easeOut", delay: i * 0.4 }}
+        className="absolute rounded-full border border-[#3ae7b540] will-change-transform"
+        style={{
+          width: `${180 + i * 45}px`,
+          height: `${180 + i * 45}px`,
+        }}
+      />
+    ))}
+    <CenterBall color="#3ae7b5" icon={<Smartphone size={32} strokeWidth={1.5} />} stat="50+" label="Apps Live" />
+    
+    {[
+      { label: "iOS", pos: "top-[8%] left-[14%]", delay: 0, dur: 3.5 },
+      { label: "APK", pos: "top-[10%] right-[8%]", delay: 0.6, dur: 4.5 },
+      { label: "PWA", pos: "bottom-[8%] left-[34%]", delay: 1.2, dur: 4 },
+    ].map(({ label, pos, delay, dur }) => (
+      <motion.div
+        key={label}
+        animate={{ y: [0, -10, 0] }}
+        transition={{ duration: dur, repeat: Infinity, ease: "easeInOut", delay }}
+        className={`absolute ${pos} w-[66px] h-[66px] rounded-full flex items-center justify-center z-20 text-[11px] font-bold border border-[#3ae7b530] bg-[#050a07] text-[#3ae7b5] shadow-[0_0_20px_#3ae7b520] will-change-transform`}
+      >
+        {label}
+      </motion.div>
+    ))}
+  </div>
+);
+
+/* ── Visual 2: API & Backend ───────────────────────────────────── */
+const Visual2 = () => (
+  <div className="relative w-full flex items-center justify-center py-10 min-h-[360px]">
+    <GlowOrb color="#07694a" />
+    <motion.div
+      animate={{ rotate: -360 }}
+      transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
+      className="absolute w-[300px] h-[300px] rounded-full border border-dashed border-[#07694a30] will-change-transform"
+    />
+    <CenterBall color="#9cfeca" icon={<Code2 size={32} strokeWidth={1.5} />} stat="99.9%" label="Uptime SLA" />
+    
+    {[
+      { Icon: GitMerge, pos: "top-[8%] left-[14%]", delay: 0, dur: 4 },
+      { Icon: Cpu, pos: "top-[10%] right-[8%]", delay: 0.5, dur: 5 },
+      { Icon: Globe, pos: "bottom-[8%] left-[36%]", delay: 1, dur: 4.5 },
+    ].map(({ Icon, pos, delay, dur }) => (
+      <motion.div
+        key={pos}
+        animate={{ y: [0, -10, 0] }}
+        transition={{ duration: dur, repeat: Infinity, ease: "easeInOut", delay }}
+        className={`absolute ${pos} w-[66px] h-[66px] rounded-full flex items-center justify-center z-20 border border-[#9cfeca25] bg-[#050a07] shadow-[0_0_20px_#9cfeca15] will-change-transform`}
+      >
+        <Icon size={24} className="text-[#9cfeca]" strokeWidth={1.5} />
+      </motion.div>
+    ))}
+  </div>
+);
+
+/* ── Visual 3: UI/UX ──────────────────────────────────────────── */
+const Visual3 = () => {
+  const positions = ["top-[8%] left-[12%]", "top-[10%] right-[8%]", "bottom-[8%] left-[36%]"];
+  return (
+    <div className="relative w-full flex items-center justify-center py-10 min-h-[360px]">
+      <GlowOrb color="#9cfeca" />
+      <motion.div
+        animate={{ rotate: 360 }}
+        transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
+        className="absolute w-[300px] h-[300px] rounded-full border border-dashed border-[#9cfeca20] will-change-transform"
+      />
+      <CenterBall color="#9cfeca" icon={<Layers size={32} strokeWidth={1.5} />} stat="10x" label="Engagement" />
+      
+      {["UX", "UI", "DS"].map((label, i) => (
+        <motion.div
+          key={label}
+          animate={{ y: [0, -8 - i * 2, 0] }}
+          transition={{ duration: 3.5 + i * 0.5, repeat: Infinity, ease: "easeInOut", delay: i * 0.4 }}
+          className={`absolute z-20 w-[66px] h-[66px] rounded-full flex items-center justify-center text-[12px] font-bold border border-[#9cfeca30] bg-[#050a07] text-[#9cfeca] shadow-[0_0_20px_#9cfeca18] will-change-transform ${positions[i]}`}
+        >
+          {label}
+        </motion.div>
+      ))}
+    </div>
+  );
+};
+
+/* ── Visual 4: Support & Security ─────────────────────────────── */
+const Visual4 = () => (
+  <div className="relative w-full flex items-center justify-center py-10 min-h-[360px]">
+    <GlowOrb color="#3ae7b5" />
+    <motion.div
+      animate={{ rotate: 360 }}
+      transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+      className="absolute w-[300px] h-[300px] rounded-full border border-dashed border-[#3ae7b525] will-change-transform"
+    />
+    <CenterBall color="#3ae7b5" icon={<ShieldCheck size={32} strokeWidth={1.5} />} stat="24/7" label="Always On" />
+    
+    {[
+      { Icon: Lock, pos: "top-[8%] left-[14%]", delay: 0, dur: 4 },
+      { Icon: Zap, pos: "top-[10%] right-[8%]", delay: 0.5, dur: 5 },
+      { Icon: BarChart3, pos: "bottom-[8%] left-[36%]", delay: 1, dur: 4.5 },
+    ].map(({ Icon, pos, delay, dur }) => (
+      <motion.div
+        key={pos}
+        animate={{ y: [0, -10, 0] }}
+        transition={{ duration: dur, repeat: Infinity, ease: "easeInOut", delay }}
+        className={`absolute ${pos} w-[66px] h-[66px] rounded-full flex items-center justify-center z-20 border border-[#3ae7b530] bg-[#050a07] shadow-[0_0_20px_#3ae7b520] will-change-transform`}
+      >
+        <Icon size={24} className="text-[#3ae7b5]" strokeWidth={1.5} />
+      </motion.div>
+    ))}
+  </div>
+);
+
+const visuals = [<Visual0 />, <Visual1 />, <Visual2 />, <Visual3 />, <Visual4 />];
+
+/* ── Main Component ────────────────────────────────────────────── */
+const WorkFlows: React.FC = () => {
+  const timelineRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: timelineRef,
+    offset: ["start center", "end center"],
+  });
+  
+  const scaleY = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
+  return (
+    <section id="workflows" className="py-24 bg-black relative overflow-hidden">
+      {/* Background ambient glow - static to avoid repaint */}
+      <div className="absolute inset-0 pointer-events-none transform-gpu">
+        <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] rounded-full blur-[140px] opacity-10 bg-secondary" />
+        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full blur-[120px] opacity-8 bg-primary" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mb-24"
+        >
+          <p className="text-xs uppercase tracking-[0.3em] text-secondary font-semibold mb-4">
+            What We Build
+          </p>
+          <h2 className="text-3xl md:text-4xl font-medium font-syne mb-6 leading-tight">
+            Our Full-Stack{" "}
+            <span className="text-secondary">Engineering Services</span>
+          </h2>
+          <p className="text-gray-400 max-w-2xl mx-auto font-space-grotesk text-lg">
+            From concept to production — we architect, build, and scale digital
+            products that outperform the competition.
+          </p>
+        </motion.div>
+
+        {/* Timeline */}
+        <div className="relative flex flex-col gap-4 py-8" ref={timelineRef}>
+          {/* Scroll progress line */}
+          <div className="absolute top-0 bottom-0 left-[20px] md:left-1/2 w-[2px] md:-translate-x-1/2 bg-white/8 z-0 overflow-hidden">
+            <motion.div
+              className="w-full h-full origin-top bg-[linear-gradient(180deg,#9cfeca_0%,#3ae7b5_50%,#07694a_100%)] shadow-[0_0_12px_#9cfeca80] will-change-transform"
+              style={{ scaleY }}
+            />
+          </div>
+
+          {workflowsData.map((service, index) => {
+            const isLeft = index % 2 === 0;
+            return (
+              <div
+                key={index}
+                className="relative flex w-full md:flex-row items-center min-h-[400px] gap-8"
+                style={{
+                  "--accent": service.color,
+                  "--accent-12": `${service.color}12`,
+                  "--accent-18": `${service.color}18`,
+                  "--accent-20": `${service.color}20`,
+                  "--accent-30": `${service.color}30`,
+                  "--accent-60": `${service.color}60`,
+                } as React.CSSProperties}
+              >
+                {/* Timeline Node */}
+                <div className="absolute top-1/2 left-[20px] md:left-1/2 w-12 h-12 rounded-full -translate-x-1/2 -translate-y-1/2 z-[2] flex items-center justify-center text-sm font-bold text-black font-syne transform-gpu bg-[var(--accent)] shadow-[0_0_20px_var(--accent-60)]">
+                  {String(index + 1).padStart(2, "0")}
+                </div>
+
+                {isLeft ? (
+                  <>
+                    {/* Card LEFT */}
+                    <div className="w-[calc(100%-50px)] md:w-[calc(50%-3rem)] md:pr-12">
+                      <motion.div
+                        initial={{ opacity: 0, x: -60 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                        viewport={{ once: true, margin: "-50px" }}
+                        className="group relative p-8 md:p-10 rounded-[24px] border border-white/10 bg-white/5 backdrop-blur-sm overflow-hidden transition-all duration-500 cursor-default md:-rotate-1 hover:!-translate-y-[8px] hover:!rotate-0 hover:!scale-[1.02]"
+                      >
+                        {/* Glow on hover */}
+                        <div className="absolute -inset-1 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 -z-10 bg-[radial-gradient(circle,var(--accent-20)_0%,transparent_70%)]" />
+
+                        <div className="w-[58px] h-[58px] rounded-2xl flex items-center justify-center mb-7 border transition-all duration-300 bg-[var(--accent-12)] border-[var(--accent-30)] text-[var(--accent)] shadow-[0_0_10px_var(--accent-18)]">
+                          {service.icon}
+                        </div>
+                        <h3 className="text-xl font-semibold font-syne mb-3 group-hover:text-secondary transition-colors">
+                          {service.title}
+                        </h3>
+                        <p className="text-gray-400 font-space-grotesk leading-relaxed text-sm">
+                          {service.description}
+                        </p>
+
+                        {/* Bottom accent line */}
+                        <div className="absolute bottom-0 left-0 h-[2px] w-0 group-hover:w-full transition-all duration-500 rounded-b-[24px] bg-[linear-gradient(90deg,var(--accent),transparent)]" />
+                      </motion.div>
+                    </div>
+
+                    {/* Visual RIGHT */}
+                    <motion.div
+                      className="hidden md:flex w-[calc(50%-3rem)] items-center justify-center relative overflow-visible"
+                      initial={{ opacity: 0, scale: 0.85 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                      viewport={{ once: true }}
+                    >
+                      {visuals[index]}
+                    </motion.div>
+                  </>
+                ) : (
+                  <>
+                    {/* Visual LEFT */}
+                    <motion.div
+                      className="hidden md:flex w-[calc(50%-3rem)] items-center justify-center relative overflow-visible"
+                      initial={{ opacity: 0, scale: 0.85 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                      viewport={{ once: true }}
+                    >
+                      {visuals[index]}
+                    </motion.div>
+
+                    {/* Card RIGHT */}
+                    <div className="w-[calc(100%-50px)] md:w-[calc(50%-3rem)] md:pl-12 md:ml-auto">
+                      <motion.div
+                        initial={{ opacity: 0, x: 60 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                        viewport={{ once: true, margin: "-50px" }}
+                        className="group relative p-8 md:p-10 rounded-[24px] border border-white/10 bg-white/5 backdrop-blur-sm overflow-hidden transition-all duration-500 cursor-default md:rotate-1 hover:!-translate-y-[8px] hover:!rotate-0 hover:!scale-[1.02]"
+                      >
+                        <div className="absolute -inset-1 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 -z-10 bg-[radial-gradient(circle,var(--accent-20)_0%,transparent_70%)]" />
+
+                        <div className="w-[58px] h-[58px] rounded-2xl flex items-center justify-center mb-7 border transition-all duration-300 bg-[var(--accent-12)] border-[var(--accent-30)] text-[var(--accent)] shadow-[0_0_10px_var(--accent-18)]">
+                          {service.icon}
+                        </div>
+                        <h3 className="text-xl font-semibold font-syne mb-3 group-hover:text-secondary transition-colors">
+                          {service.title}
+                        </h3>
+                        <p className="text-gray-400 font-space-grotesk leading-relaxed text-sm">
+                          {service.description}
+                        </p>
+
+                        <div className="absolute bottom-0 left-0 h-[2px] w-0 group-hover:w-full transition-all duration-500 rounded-b-[24px] bg-[linear-gradient(90deg,var(--accent),transparent)]" />
+                      </motion.div>
+                    </div>
+                  </>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default WorkFlows;
