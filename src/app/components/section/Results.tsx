@@ -4,33 +4,33 @@ import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
 const METRICS = [
-    { label: "Client ROI", value: "400%", description: "Average increase in revenue within the first year." },
-    { label: "Systems Built", value: "150+", description: "Custom platforms delivered across 12 industries." },
-    { label: "Code Quality", value: "99.9%", description: "Unit test coverage and architectural uptime." },
-    { label: "Support SLA", value: "24/7", description: "Global monitoring and technical expert availability." }
+    { label: "Happy Clients", value: "150+", description: "Businesses just like yours that trusted us and saw real results." },
+    { label: "Projects Delivered", value: "200+", description: "Websites, apps and stores launched on time and on budget." },
+    { label: "Client Satisfaction", value: "98%", description: "Our clients come back to us because we genuinely care about their success." },
+    { label: "Always Available", value: "24/7", description: "We are here whenever something needs attention. No waiting, no excuses." }
 ];
 
 const CASE_STUDIES = [
     {
-        title: "Argent Financial Ecosystem",
-        category: "Fintech & Security",
-        outcome: "Zero breaches & 3x performance boost",
-        description: "Re-engineered a legacy banking core into a high-security, distributed cloud architecture.",
-        tags: ["Next.js", "Rust", "AWS", "Blockchain"]
+        title: "Local Restaurant Chain Goes Digital",
+        category: "Restaurant & Food",
+        outcome: "3x more table bookings in 60 days",
+        description: "A family-run restaurant group wanted to accept online orders and bookings. We built them a custom platform and within 2 months they tripled their reservations.",
+        tags: ["Online Ordering", "Table Booking", "Menu Management", "Google SEO"]
     },
     {
-        title: "Nexus Media Stream",
-        category: "Scalable Infrastructure",
-        outcome: "Handling 2M+ concurrent users",
-        description: "Built a custom video streaming engine that reduced latency by 60% globally.",
-        tags: ["Go", "WebRTC", "Redis", "Docker"]
+        title: "Fashion Brand Launches Online Store",
+        category: "E-commerce & Retail",
+        outcome: "$80K in sales in the first month",
+        description: "A clothing brand that only sold in-person came to us wanting to sell online. We designed their store, set up payments, and launched it in 3 weeks.",
+        tags: ["Online Store", "Payment Setup", "Mobile Friendly", "Inventory"]
     },
     {
-        title: "Bloom Retail Hub",
-        category: "E-commerce Transformation",
-        outcome: "45% conversion rate increase",
-        description: "Unified 5 separate store systems into one seamless headless commerce platform.",
-        tags: ["Shopify Plus", "React", "Node.js", "SEO"]
+        title: "Real Estate Agency Gets More Leads",
+        category: "Real Estate & Property",
+        outcome: "5x more inquiries from Google",
+        description: "A local property agency wasn't showing up on Google. We redesigned their website and optimized it for search. Inquiries jumped within the first month.",
+        tags: ["Website Redesign", "Google SEO", "Lead Forms", "Property Listings"]
     }
 ];
 
@@ -99,10 +99,10 @@ const Results: React.FC = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
                     >
-                        <h2 className="text-xs uppercase tracking-[0.3em] text-secondary font-semibold mb-4">Case Studies</h2>
+                        <h2 className="text-xs uppercase tracking-[0.3em] text-secondary font-semibold mb-4">Real Success Stories</h2>
                         <h3 className="text-2xl md:text-3xl font-medium font-syne mb-6 leading-tight">
-                            Real Problems. <br />
-                            <span className="text-secondary">Exceptional Solutions.</span>
+                            Businesses Like Yours <br />
+                            <span className="text-secondary">That Grew With Us.</span>
                         </h3>
                     </motion.div>
                 </div>

@@ -21,7 +21,7 @@ export default function Stars() {
     }, []);
 
     return (
-        <div className="star-section absolute opacity-20 top-0 left-0 w-full h-full overflow-hidden">
+        <div className="star-section absolute opacity-15 top-0 left-0 w-full h-full overflow-hidden">
             {stars.map((star, i) => (
                 <span
                     key={i}

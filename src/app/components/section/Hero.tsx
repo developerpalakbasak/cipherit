@@ -9,13 +9,13 @@ import Stars from '../utils/Stars';
 import Magnetic from '../utils/Magnetic';
 
 const quotes = [
-  "Websites",
-  "Mobile Apps",
-  "Desktop Apps",
-  "Secure API Integrations",
-  "E-commerce Ecosystems",
-  "Technical SEO",
-  "Brand Identity"
+  "Websites That Win Clients",
+  "Mobile Apps Your Customers Love",
+  "Online Stores That Actually Sell",
+  "Brands That Get Found on Google",
+  "Digital Tools That Save You Time",
+  "Software Built Around Your Business",
+  "Results You Can See & Measure"
 ];
 
 const Hero: React.FC = () => {
@@ -34,10 +34,10 @@ const Hero: React.FC = () => {
   };
 
   const floatingTags = [
-    { text: "🔒 Zero-Trust Security", top: "18%", left: "8%", rotate: -8, delay: 0 },
-    { text: "⚡ Lightning Fast", top: "42%", left: "4%", rotate: 12, delay: 1 },
-    { text: "📈 99.9% Uptime Guarantee", top: "14%", right: "8%", rotate: 6, delay: 2 },
-    { text: "🛡️ 24/7 Expert Maintenance", top: "48%", right: "5%", rotate: -10, delay: 3 },
+    { text: "🤝 Honest & Transparent", top: "18%", left: "8%", rotate: -8, delay: 0 },
+    { text: "🚀 Fast Delivery, Zero Stress", top: "42%", left: "4%", rotate: 12, delay: 1 },
+    { text: "💰 More Customers, More Revenue", top: "14%", right: "8%", rotate: 6, delay: 2 },
+    { text: "🛡️ We Handle Everything For You", top: "48%", right: "5%", rotate: -10, delay: 3 },
   ];
 
   return (
@@ -104,7 +104,7 @@ const Hero: React.FC = () => {
         transition={{ duration: 0.8 }}
         className="z-10 px-6 py-2 rounded-full border border-secondary/30 bg-secondary/5 text-xs md:text-sm font-semibold tracking-wider text-secondary shadow-[0_0_15px_rgba(156,254,202,0.08)] backdrop-blur-sm"
       >
-        🛡️ Strategic Software Solutions & Maintenance
+        ✨ We Turn Your Business Ideas Into Digital Reality
       </motion.div>
 
       {/* Content Container */}
@@ -116,7 +116,7 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="block text-white"
           >
-            Innovative Solutions for
+            Your Business Deserves a
           </motion.span>
           <motion.span
             initial={{ opacity: 0, y: 30 }}
@@ -134,7 +134,7 @@ const Hero: React.FC = () => {
           transition={{ duration: 1, delay: 0.5 }}
           className="mt-6 text-base md:text-xl text-gray-400 max-w-2xl font-space-grotesk leading-relaxed"
         >
-          From high-performance custom Web & Mobile apps to military-grade API security and viral digital SEO. We don't just engineer your foundation—we maintain it for life.
+          Whether you need a stunning website, a mobile app, or a complete online store — we build it for you, keep it running smoothly, and help more people discover your business online.
         </motion.p>
       </div>
 
@@ -151,13 +151,13 @@ const Hero: React.FC = () => {
             onClick={(e) => handleScroll(e, "/#contact")}
             className="btn-primary flex items-center gap-3 px-10 py-5 rounded-2xl text-base font-bold shadow-[0_0_20px_rgba(58,231,181,0.2)] hover:shadow-[0_0_40px_rgba(58,231,181,0.45)] hover:scale-[1.03] transition-all"
           >
-            <span>Start Your Project</span>
+            <span>Get a Free Consultation</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" x2="19" y1="12" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </Link>
         </Magnetic>
         
         <p className="text-xs md:text-sm text-gray-500 font-space-grotesk tracking-wide mt-2">
-          ⚡ Free Architecture Assessment • Lifetime Support Included
+          ✅ Free Consultation • No Commitment • Results Guaranteed
         </p>
       </motion.div>
 

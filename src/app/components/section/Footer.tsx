@@ -49,18 +49,18 @@ const Footer: React.FC = () => {
             </Link>
             
             <p className="text-gray-400 font-space-grotesk text-sm max-w-sm leading-relaxed">
-              We design, architect, secure, and maintain cutting-edge web, mobile, and cloud software ecosystems for ambitious enterprises worldwide.
+              We help businesses grow online with beautiful websites, mobile apps, online stores, and smart digital tools. You focus on your business — we handle the rest.
             </p>
             
             {/* Trust Badges */}
             <div className="flex flex-wrap gap-3 pt-2">
               <span className="text-[10px] uppercase font-bold text-gray-500 border border-white/10 bg-white/5 px-3 py-1.5 rounded-full flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 bg-secondary rounded-full animate-pulse" />
-                Zero-Trust Secure
+                No Hidden Fees
               </span>
               <span className="text-[10px] uppercase font-bold text-gray-500 border border-white/10 bg-white/5 px-3 py-1.5 rounded-full flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 bg-btn rounded-full" />
-                99.9% Uptime SLA
+                Results Guaranteed
               </span>
             </div>
           </div>
@@ -68,7 +68,7 @@ const Footer: React.FC = () => {
           {/* Capabilities Col */}
           <div>
             <h4 className="text-sm font-semibold font-syne uppercase tracking-wider text-white mb-6">
-              Capabilities
+              Our Services
             </h4>
             <ul className="space-y-4 text-sm font-space-grotesk text-gray-400">
               <li>
@@ -77,7 +77,7 @@ const Footer: React.FC = () => {
                   onClick={(e) => handleScroll(e, "/#services")}
                   className="hover:text-secondary hover:underline transition-colors"
                 >
-                  Web Development
+                  Websites & Web Apps
                 </Link>
               </li>
               <li>
@@ -86,7 +86,7 @@ const Footer: React.FC = () => {
                   onClick={(e) => handleScroll(e, "/#services")}
                   className="hover:text-secondary hover:underline transition-colors"
                 >
-                  Mobile Platforms
+                  Mobile Apps
                 </Link>
               </li>
               <li>
@@ -95,7 +95,7 @@ const Footer: React.FC = () => {
                   onClick={(e) => handleScroll(e, "/#services")}
                   className="hover:text-secondary hover:underline transition-colors"
                 >
-                  System Architecture
+                  Online Stores
                 </Link>
               </li>
               <li>
@@ -104,7 +104,7 @@ const Footer: React.FC = () => {
                   onClick={(e) => handleScroll(e, "/#services")}
                   className="hover:text-secondary hover:underline transition-colors"
                 >
-                  Technical SEO
+                  Get Found on Google
                 </Link>
               </li>
               <li>
@@ -113,7 +113,7 @@ const Footer: React.FC = () => {
                   onClick={(e) => handleScroll(e, "/#services")}
                   className="hover:text-secondary hover:underline transition-colors"
                 >
-                  Security Maintenance
+                  Ongoing Support
                 </Link>
               </li>
             </ul>
@@ -170,7 +170,7 @@ const Footer: React.FC = () => {
               Stay Connected
             </h4>
             <p className="text-gray-400 text-xs font-space-grotesk leading-relaxed mb-4">
-              Get our monthly breakdown of technical architecture strategies.
+              Get practical tips on growing your business online, straight to your inbox. No spam, ever.
             </p>
             <div className="space-y-3">
               <input 
@@ -191,7 +191,7 @@ const Footer: React.FC = () => {
         {/* Bottom bar */}
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-6 text-xs font-space-grotesk text-gray-500">
           <p>
-            &copy; {new Date().getFullYear()} CipherIT. All technical rights reserved.
+            © {new Date().getFullYear()} CipherIT. All rights reserved.
           </p>
           <div className="flex gap-8">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>

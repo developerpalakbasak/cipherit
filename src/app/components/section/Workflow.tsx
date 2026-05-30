@@ -21,48 +21,48 @@ import {
 const workflowsData = [
   {
     icon: <Monitor size={32} />,
-    title: "Web App Development",
+    title: "A Website That Works Hard For You",
     description:
-      "High-performance, secure web applications built with cutting-edge frameworks — from dynamic SPAs to complex enterprise portals that scale effortlessly.",
+      "Your website is your best salesperson — it works 24/7. We build ones that look stunning, load fast, and turn visitors into real paying customers.",
     color: "#9cfeca",
-    stat: "100+",
-    statLabel: "Apps Shipped",
+    stat: "200+",
+    statLabel: "Sites Launched",
   },
   {
     icon: <Smartphone size={32} />,
-    title: "Mobile Apps (Android & iOS)",
+    title: "An App Your Customers Actually Use",
     description:
-      "Cross-platform and native mobile experiences with smooth animations, offline support, and pixel-perfect design that users actually love.",
+      "Most of your customers are on their phones. We put your business right in their hands with a smooth, beautiful app they will open every single day.",
     color: "#3ae7b5",
     stat: "50+",
     statLabel: "Apps Live",
   },
   {
     icon: <Code2 size={32} />,
-    title: "API & Backend Engineering",
+    title: "All Your Business Tools, Connected",
     description:
-      "Robust RESTful and GraphQL APIs, microservices, and cloud-native backends architected for reliability, speed, and seamless third-party integrations.",
+      "Tired of copy-pasting between apps? We link all your business software together so everything runs automatically and nothing falls through the cracks.",
     color: "#07694a",
-    stat: "99.9%",
-    statLabel: "Uptime SLA",
+    stat: "99%",
+    statLabel: "On-Time Delivery",
   },
   {
     icon: <Layers size={32} />,
-    title: "UI/UX & Design Systems",
+    title: "A Look That Builds Instant Trust",
     description:
-      "Immersive, user-centric interfaces and scalable design systems that bridge aesthetics with function — from wireframes to production-ready components.",
+      "People judge your business by how it looks online. We design experiences so polished and professional that customers trust you before they even reach out.",
     color: "#9cfeca",
-    stat: "10x",
-    statLabel: "Engagement",
+    stat: "98%",
+    statLabel: "Client Satisfaction",
   },
   {
     icon: <ShieldCheck size={32} />,
-    title: "Support, Security & Growth",
+    title: "We Stay With You After Launch",
     description:
-      "24/7 monitoring, penetration testing, SEO, and performance optimization. We keep your product secure, fast, and growing long after launch.",
+      "Most agencies disappear once the project is done. We don't. We keep your business online, safe, fast, and growing — every day, without interruption.",
     color: "#3ae7b5",
     stat: "24/7",
-    statLabel: "Always On",
+    statLabel: "Always Here",
   },
 ];
 
@@ -280,15 +280,14 @@ const WorkFlows: React.FC = () => {
           className="text-center mb-24"
         >
           <p className="text-xs uppercase tracking-[0.3em] text-secondary font-semibold mb-4">
-            What We Build
+            How We Help Your Business
           </p>
           <h2 className="text-3xl md:text-4xl font-medium font-syne mb-6 leading-tight">
-            Our Full-Stack{" "}
-            <span className="text-secondary">Engineering Services</span>
+            Five Ways We{" "}
+            <span className="text-secondary">Grow Your Business Online</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto font-space-grotesk text-lg">
-            From concept to production — we architect, build, and scale digital
-            products that outperform the competition.
+            From your first website to a full digital business — we handle the hard stuff so you can focus on what you do best.
           </p>
         </motion.div>
 

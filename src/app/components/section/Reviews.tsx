@@ -2,46 +2,46 @@ import React from 'react';
 
 const REVIEWS = [
     {
-        name: "Alexander Wright",
-        role: "CEO, TechFlow Solutions",
-        content: "CipherIT transformed our legacy systems into a high-performance cloud infrastructure. Their 24/7 support is truly unmatched in the industry.",
+        name: "Sarah Mitchell",
+        role: "Owner, Bloom Boutique",
+        content: "I had zero online presence before CipherIT. Within 6 weeks, I had a gorgeous website and an online store. My sales have been incredible ever since. Best investment I've made for my business.",
         rating: 5,
-        avatar: "AW"
+        avatar: "SM"
     },
     {
-        name: "Sarah Chen",
-        role: "Founder, Bloom E-commerce",
-        content: "The custom Shopify integration they built for us increased our conversion rate by 40% in just two months. Their eye for detail is incredible.",
+        name: "James Okoro",
+        role: "Director, Okoro Real Estate",
+        content: "We were invisible on Google. CipherIT fixed that completely. Now we get calls from people who found us online every single day. I wish I had done this years ago.",
         rating: 5,
-        avatar: "SC"
+        avatar: "JO"
     },
     {
-        name: "Marcus Thorne",
-        role: "Marketing Director, Nexus Media",
-        content: "From YouTube SEO to viral editing, CipherIT handles our entire digital presence. Our engagement metrics have tripled since partnering with them.",
+        name: "Priya Nair",
+        role: "Founder, Spice & Co. Restaurant",
+        content: "I needed an app for online orders and table bookings. The team delivered something way better than I imagined, and my customers absolutely love it. Our weekend bookings are always full now.",
         rating: 5,
-        avatar: "MT"
+        avatar: "PN"
     },
     {
-        name: "Elena Rodriguez",
-        role: "CTO, Argent Financial",
-        content: "Security was our top priority, and CipherIT delivered a bulletproof architecture. They don't just write code; they build digital fortresses.",
+        name: "Marcus Webb",
+        role: "CEO, Webb Logistics",
+        content: "Managing our deliveries used to be a nightmare of spreadsheets. CipherIT built us a custom tracking tool and now everything runs on its own. Our team saves hours every day.",
         rating: 5,
-        avatar: "ER"
+        avatar: "MW"
     },
     {
-        name: "Jameson P. Lee",
-        role: "Product Manager, SkyBound Apps",
-        content: "The UI/UX design work they did for our mobile app is world-class. Our users constantly compliment the intuitive and sleek interface.",
+        name: "Layla Hassan",
+        role: "Founder, LH Fashion Brand",
+        content: "I was skeptical about selling clothes online but they made it so easy. My store looks amazing, payments work perfectly, and I'm getting orders from customers I have never even met in person.",
         rating: 5,
-        avatar: "JL"
+        avatar: "LH"
     },
     {
-        name: "Olivia Vance",
-        role: "Director, Global Logistics Inc.",
-        content: "Managing global supply chains requires real-time data. CipherIT built us a dashboard that we now depend on every single minute. Exceptional work.",
+        name: "David Chen",
+        role: "Owner, Chen's Dental Clinic",
+        content: "Our old website was embarrassing. CipherIT gave us a professional online presence, set up an appointment booking system, and now patients can find and book us easily. Truly life-changing.",
         rating: 5,
-        avatar: "OV"
+        avatar: "DC"
     }
 ];
 
@@ -50,12 +50,12 @@ const Reviews: React.FC = () => {
         <section id="reviews" className="py-24 relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-10 relative z-10">
                 <div className="text-center mb-16">
-                    <h2 className="text-xs uppercase tracking-[0.3em] text-secondary font-semibold mb-4">Client Testimonials</h2>
+                    <h2 className="text-xs uppercase tracking-[0.3em] text-secondary font-semibold mb-4">Client Stories</h2>
                     <h3 className="text-2xl md:text-3xl font-medium font-syne mb-6">
-                        Trusted by <span className="text-secondary">Industry Leaders</span>
+                        Real People. <span className="text-secondary">Real Results.</span>
                     </h3>
                     <p className="text-gray-400 max-w-2xl mx-auto text-lg font-space-grotesk">
-                        Don't just take our word for it. Here's what our partners say about their digital transformation journey with CipherIT.
+                        Don't just take our word for it. Here's what business owners across different industries say about working with us.
                     </p>
                 </div>
 

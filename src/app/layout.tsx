@@ -27,8 +27,20 @@ const syne = Syne({
 });
 
 export const metadata: Metadata = {
-  title: "CipherIt",
-  description: "Your Business and Software Solution.",
+  title: "CipherIT — We Build Websites, Apps & Online Stores That Grow Your Business",
+  description: "CipherIT is a full-service digital agency. We build beautiful websites, mobile apps, and online stores for businesses of all sizes. Get found on Google, sell more, and grow faster — without the tech headache.",
+  keywords: "website design, mobile app development, online store, SEO, digital agency, web development, e-commerce",
+  openGraph: {
+    title: "CipherIT — Your Business, Online & Growing",
+    description: "We build websites, apps, and online stores that get results. No tech jargon. Just real growth for your business.",
+    type: "website",
+    url: "https://cipherit.io",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "CipherIT — Websites, Apps & Online Stores",
+    description: "We help businesses grow online. Get a free consultation today.",
+  },
 };
 
 export default function RootLayout({

@@ -4,45 +4,45 @@ const PLANS = [
     {
         name: "Starter",
         price: "999",
-        description: "Perfect for small businesses looking to establish their digital footprint.",
+        description: "Perfect if you're just getting started and need a professional online presence that gets you noticed.",
         features: [
-            "Custom Website Design",
-            "Basic SEO Optimization",
-            "Monthly Maintenance",
-            "Email Support",
-            "Standard Security"
+            "A Beautiful, Custom Website",
+            "Works on All Phones & Tablets",
+            "Show Up on Google (Basic SEO)",
+            "Contact Form & Social Links",
+            "1 Month of Free Support"
         ],
-        buttonText: "Choose Starter",
+        buttonText: "Get Started",
         recommended: false
     },
     {
-        name: "Professional",
+        name: "Growth",
         price: "2,499",
-        description: "Comprehensive software solutions for growing brands ready to scale.",
+        description: "Best for growing businesses that want to attract more customers, sell online, and run smoother operations.",
         features: [
-            "Advanced Web & Mobile App",
-            "Full SEO & Social Strategy",
-            "Weekly Performance Audits",
-            "Priority 24/7 Support",
-            "Advanced Cloud Security",
-            "Custom API Integrations"
+            "Website + Mobile App",
+            "Online Store or Booking System",
+            "Get Found on Google (Full SEO)",
+            "Accept Payments Online",
+            "Priority Support, Anytime",
+            "Monthly Performance Report"
         ],
-        buttonText: "Start Professional",
+        buttonText: "Start Growing",
         recommended: true
     },
     {
         name: "Enterprise",
         price: "Custom",
-        description: "End-to-end digital transformation for large-scale operations.",
+        description: "For established businesses that need a complete digital overhaul or a powerful custom system built from scratch.",
         features: [
-            "Multi-Platform Ecosystem",
-            "Global SEO Domination",
-            "Dedicated Support Team",
-            "Lifetime Maintenance",
-            "Military-Grade Security",
-            "Unlimited Scaling"
+            "Full Custom Software Solution",
+            "Web + Mobile + Desktop Apps",
+            "Advanced Google SEO Strategy",
+            "Dedicated Account Manager",
+            "Lifetime Ongoing Support",
+            "Scales As Your Business Grows"
         ],
-        buttonText: "Contact Sales",
+        buttonText: "Let's Talk",
         recommended: false
     }
 ];
@@ -52,13 +52,13 @@ const Pricing: React.FC = () => {
         <section id="pricing" className="py-24 relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-10 relative z-10">
                 <div className="text-center mb-20">
-                    <h2 className="text-xs uppercase tracking-[0.3em] text-secondary font-semibold mb-4">Investment Plans</h2>
+                    <h2 className="text-xs uppercase tracking-[0.3em] text-secondary font-semibold mb-4">Simple, Honest Pricing</h2>
                     <h3 className="text-2xl md:text-3xl font-medium font-syne mb-6">
-                        Scalable Pricing for <br />
-                        <span className="text-secondary">Every Stage of Growth</span>
+                        You Know Exactly <br />
+                        <span className="text-secondary">What You're Getting</span>
                     </h3>
                     <p className="text-gray-400 max-w-2xl mx-auto text-lg font-space-grotesk">
-                        Transparent, value-driven pricing designed to grow with your business. No hidden fees, just pure digital excellence.
+                        No hidden fees. No confusing packages. Just clear, fair pricing that grows with your business.
                     </p>
                 </div>
 
