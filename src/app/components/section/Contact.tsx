@@ -26,7 +26,7 @@ const CONTACT_INFO = [
 
 const Contact: React.FC = () => {
   return (
-    <section id="contact" className="pb-12 sm:pb-24 relative overflow-hidden">
+    <section id="contact" className="pb-6 sm:pb-24 pt-12 sm:pt-20 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 md:px-10 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
           {/* Left Side: Info */}

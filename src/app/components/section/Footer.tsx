@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="relative bg-black border-t border-white/10 pt-24 sm:pt-24 pb-8 md:pb-12 overflow-hidden">
+    <footer className="relative bg-black border-t border-white/10 pt-8 sm:pt-16 pb-8 md:pb-12 overflow-hidden">
       {/* Accent glow elements */}
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-secondary/5 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute top-0 left-0 w-[300px] h-[300px] bg-primary/5 rounded-full blur-[140px] pointer-events-none" />
