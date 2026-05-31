@@ -35,59 +35,70 @@ const CASE_STUDIES = [
 ];
 
 const AnimatedCounter = ({ value, delay }: { value: string, delay: number }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true, margin: "-50px" });
 
-  return (
-    <span ref={ref} className="inline-flex overflow-hidden py-1">
-      {value.split('').map((char, i) => {
-        const isEven = i % 2 === 0;
-        const initialY = isEven ? 40 : -40;
-        
-        return (
-          <motion.span
-            key={i}
-            initial={{ y: initialY, opacity: 0 }}
-            animate={isInView ? { y: 0, opacity: 1 } : { y: initialY, opacity: 0 }}
-            transition={{ 
-              duration: 0.8, 
-              delay: delay + (i * 0.08), 
-              ease: [0.16, 1, 0.3, 1]
-            }}
-            style={{ display: 'inline-block' }}
-          >
-            {char}
-          </motion.span>
-        );
-      })}
-    </span>
-  );
+    return (
+        <span ref={ref} className="inline-flex overflow-hidden py-1">
+            {value.split('').map((char, i) => {
+                const isEven = i % 2 === 0;
+                const initialY = isEven ? 40 : -40;
+
+                return (
+                    <motion.span
+                        key={i}
+                        initial={{ y: initialY, opacity: 0 }}
+                        animate={isInView ? { y: 0, opacity: 1 } : { y: initialY, opacity: 0 }}
+                        transition={{
+                            duration: 0.8,
+                            delay: delay + (i * 0.08),
+                            ease: [0.16, 1, 0.3, 1]
+                        }}
+                        style={{ display: 'inline-block' }}
+                    >
+                        {char}
+                    </motion.span>
+                );
+            })}
+        </span>
+    );
 };
 
 const Results: React.FC = () => {
     return (
-        <section id="results" className="py-24 relative overflow-hidden bg-black/40">
+        <section id="results" className="py-20 relative overflow-hidden bg-black/40">
             {/* Ambient background glow */}
             <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-secondary/5 rounded-full blur-[140px] pointer-events-none" />
 
-            <div className="max-w-7xl mx-auto px-10 relative z-10">
-                
+            <div className="max-w-7xl mx-auto px-4 md:px-10 relative z-10">
+
+                {/* Section Heading */}
+                <div className="text-center mb-16">
+                    <h2 className="text-xs uppercase tracking-[0.3em] text-secondary font-semibold mb-4">Real Results, Real Businesses</h2>
+                    <h3 className="text-2xl md:text-3xl font-medium font-syne mb-6">
+                        Numbers That <span className="text-secondary">Speak for Themselves</span>
+                    </h3>
+                    <p className="text-gray-400 max-w-2xl mx-auto text-lg font-space-grotesk">
+                        Every project we deliver is measured by one thing — how much it moves the needle for your business.
+                    </p>
+                </div>
+
                 {/* Metrics Grid */}
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-32">
                     {METRICS.map((metric, index) => (
-                        <motion.div 
-                            key={index} 
+                        <motion.div
+                            key={index}
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-80px" }}
                             transition={{ duration: 0.6, delay: index * 0.1 }}
-                            className="text-center p-8 rounded-2xl border border-white/5 bg-white/5 backdrop-blur-sm hover:border-secondary/30 transition-colors shadow-lg"
+                            className=" p-2 md:p-8 rounded-2xl border border-white/5 bg-white/5 backdrop-blur-sm hover:border-secondary/30 transition-colors shadow-lg"
                         >
                             <h4 className="text-2xl md:text-3xl font-semibold font-syne text-secondary mb-2 drop-shadow-[0_0_15px_rgba(156,254,202,0.15)] flex justify-center">
                                 <AnimatedCounter value={metric.value} delay={index * 0.15 + 0.3} />
                             </h4>
                             <p className="text-white font-bold mb-2 uppercase tracking-widest text-xs">{metric.label}</p>
-                            <p className="text-gray-400 text-sm font-space-grotesk">{metric.description}</p>
+                            <p className="text-gray-400 text-sm font-space-grotesk ">{metric.description}</p>
                         </motion.div>
                     ))}
                 </div>
@@ -110,7 +121,7 @@ const Results: React.FC = () => {
                 {/* Case Studies Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                     {CASE_STUDIES.map((study, index) => (
-                        <motion.div 
+                        <motion.div
                             key={index}
                             initial={{ opacity: 0, y: 40 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -135,7 +146,7 @@ const Results: React.FC = () => {
                             <p className="text-gray-400 font-space-grotesk mb-8 flex-1 leading-relaxed">
                                 {study.description}
                             </p>
-                            
+
                             <div className="flex flex-wrap gap-2 pt-6 border-t border-white/5">
                                 {study.tags.map((tag, i) => (
                                     <span key={i} className="text-[10px] uppercase font-bold text-gray-500 border border-white/10 bg-white/5 px-2.5 py-1 rounded transition-colors group-hover:border-secondary/20 group-hover:text-gray-400">

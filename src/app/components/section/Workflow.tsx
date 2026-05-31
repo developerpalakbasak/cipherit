@@ -263,7 +263,7 @@ const WorkFlows: React.FC = () => {
   const scaleY = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
-    <section id="workflows" className="py-24 bg-black relative overflow-hidden">
+    <section id="workflows" className="py-20 bg-black relative overflow-hidden">
       {/* Background ambient glow - static to avoid repaint */}
       <div className="absolute inset-0 pointer-events-none transform-gpu">
         <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] rounded-full blur-[140px] opacity-10 bg-secondary" />
@@ -306,7 +306,7 @@ const WorkFlows: React.FC = () => {
             return (
               <div
                 key={index}
-                className="relative flex w-full md:flex-row items-center min-h-[400px] gap-8"
+                className="relative flex flex-col md:flex-row w-full items-center min-h-[200px] md:min-h-[400px] gap-4 md:gap-8 py-4 md:py-0"
                 style={{
                   "--accent": service.color,
                   "--accent-12": `${service.color}12`,
@@ -317,24 +317,21 @@ const WorkFlows: React.FC = () => {
                 } as React.CSSProperties}
               >
                 {/* Timeline Node */}
-                <div className="absolute top-1/2 left-[20px] md:left-1/2 w-12 h-12 rounded-full -translate-x-1/2 -translate-y-1/2 z-[2] flex items-center justify-center text-sm font-bold text-black font-syne transform-gpu bg-[var(--accent)] shadow-[0_0_20px_var(--accent-60)]">
+                <div className="absolute top-1/2 left-[20px] md:left-1/2 w-12 h-12 rounded-full -translate-x-1/2 -translate-y-1/2 z-[2] flex items-center justify-center text-sm font-bold text-black font-syne transform-gpu bg-secondary shadow-[0_0_20px_rgba(156,254,202,0.6)]">
                   {String(index + 1).padStart(2, "0")}
                 </div>
 
                 {isLeft ? (
                   <>
                     {/* Card LEFT */}
-                    <div className="w-[calc(100%-50px)] md:w-[calc(50%-3rem)] md:pr-12">
+                    <div className="w-[90%] ml-[10%] md:ml-0 md:w-[calc(50%-3rem)] md:pr-12">
                       <motion.div
-                        initial={{ opacity: 0, x: -60 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                        viewport={{ once: true, margin: "-50px" }}
-                        className="group relative p-8 md:p-10 rounded-[24px] border border-white/10 bg-white/5 backdrop-blur-sm overflow-hidden transition-all duration-500 cursor-default md:-rotate-1 hover:!-translate-y-[8px] hover:!rotate-0 hover:!scale-[1.02]"
+                        initial={{ opacity: 0, y: 24 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                        viewport={{ once: true, margin: "-80px" }}
+                        className="will-change-transform group relative p-8 md:p-10 rounded-[24px] border border-white/10 bg-white/5 overflow-hidden transition-all duration-500 cursor-default md:-rotate-1 hover:!-translate-y-[8px] hover:!rotate-0 hover:!scale-[1.02] hover:shadow-[0_0_40px_var(--accent-18)]"
                       >
-                        {/* Glow on hover */}
-                        <div className="absolute -inset-1 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 -z-10 bg-[radial-gradient(circle,var(--accent-20)_0%,transparent_70%)]" />
-
                         <div className="w-[58px] h-[58px] rounded-2xl flex items-center justify-center mb-7 border transition-all duration-300 bg-[var(--accent-12)] border-[var(--accent-30)] text-[var(--accent)] shadow-[0_0_10px_var(--accent-18)]">
                           {service.icon}
                         </div>
@@ -352,11 +349,11 @@ const WorkFlows: React.FC = () => {
 
                     {/* Visual RIGHT */}
                     <motion.div
-                      className="hidden md:flex w-[calc(50%-3rem)] items-center justify-center relative overflow-visible"
-                      initial={{ opacity: 0, scale: 0.85 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                      viewport={{ once: true }}
+                      className="hidden md:flex w-[calc(50%-3rem)] items-center justify-center relative overflow-visible will-change-transform"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.2, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                      viewport={{ once: true, margin: "-80px" }}
                     >
                       {visuals[index]}
                     </motion.div>
@@ -365,26 +362,24 @@ const WorkFlows: React.FC = () => {
                   <>
                     {/* Visual LEFT */}
                     <motion.div
-                      className="hidden md:flex w-[calc(50%-3rem)] items-center justify-center relative overflow-visible"
-                      initial={{ opacity: 0, scale: 0.85 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                      viewport={{ once: true }}
+                      className="hidden md:flex w-[calc(50%-3rem)] items-center justify-center relative overflow-visible will-change-transform"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.2, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                      viewport={{ once: true, margin: "-80px" }}
                     >
                       {visuals[index]}
                     </motion.div>
 
                     {/* Card RIGHT */}
-                    <div className="w-[calc(100%-50px)] md:w-[calc(50%-3rem)] md:pl-12 md:ml-auto">
+                    <div className="w-[90%] ml-[10%] md:w-[calc(50%-3rem)] md:ml-auto md:pl-12">
                       <motion.div
-                        initial={{ opacity: 0, x: 60 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                        viewport={{ once: true, margin: "-50px" }}
-                        className="group relative p-8 md:p-10 rounded-[24px] border border-white/10 bg-white/5 backdrop-blur-sm overflow-hidden transition-all duration-500 cursor-default md:rotate-1 hover:!-translate-y-[8px] hover:!rotate-0 hover:!scale-[1.02]"
+                        initial={{ opacity: 0, y: 24 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                        viewport={{ once: true, margin: "-80px" }}
+                        className="will-change-transform group relative p-8 md:p-10 rounded-[24px] border border-white/10 bg-white/5 overflow-hidden transition-all duration-500 cursor-default md:rotate-1 hover:!-translate-y-[8px] hover:!rotate-0 hover:!scale-[1.02] hover:shadow-[0_0_40px_var(--accent-18)]"
                       >
-                        <div className="absolute -inset-1 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 -z-10 bg-[radial-gradient(circle,var(--accent-20)_0%,transparent_70%)]" />
-
                         <div className="w-[58px] h-[58px] rounded-2xl flex items-center justify-center mb-7 border transition-all duration-300 bg-[var(--accent-12)] border-[var(--accent-30)] text-[var(--accent)] shadow-[0_0_10px_var(--accent-18)]">
                           {service.icon}
                         </div>

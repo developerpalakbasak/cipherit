@@ -3,9 +3,12 @@ import React from 'react';
 const PLANS = [
     {
         name: "Starter",
-        price: "999",
+        price: "799",
+        maintenanceFee: "49",
+        pages: "Up to 3 Pages",
         description: "Perfect if you're just getting started and need a professional online presence that gets you noticed.",
         features: [
+            "Up to 3 Custom Pages",
             "A Beautiful, Custom Website",
             "Works on All Phones & Tablets",
             "Show Up on Google (Basic SEO)",
@@ -18,8 +21,11 @@ const PLANS = [
     {
         name: "Growth",
         price: "2,499",
+        maintenanceFee: "149",
+        pages: "Up to 8 Pages",
         description: "Best for growing businesses that want to attract more customers, sell online, and run smoother operations.",
         features: [
+            "Up to 8 Custom Pages",
             "Website + Mobile App",
             "Online Store or Booking System",
             "Get Found on Google (Full SEO)",
@@ -33,8 +39,11 @@ const PLANS = [
     {
         name: "Enterprise",
         price: "Custom",
+        maintenanceFee: null,
+        pages: "Unlimited Pages",
         description: "For established businesses that need a complete digital overhaul or a powerful custom system built from scratch.",
         features: [
+            "Unlimited Pages & Sections",
             "Full Custom Software Solution",
             "Web + Mobile + Desktop Apps",
             "Advanced Google SEO Strategy",
@@ -49,8 +58,8 @@ const PLANS = [
 
 const Pricing: React.FC = () => {
     return (
-        <section id="pricing" className="py-24 relative overflow-hidden">
-            <div className="max-w-7xl mx-auto px-10 relative z-10">
+        <section id="pricing" className=" pt-12 sm:pt-16 relative overflow-hidden">
+            <div className="max-w-7xl mx-auto px-4 md:px-10 relative z-10">
                 <div className="text-center mb-20">
                     <h2 className="text-xs uppercase tracking-[0.3em] text-secondary font-semibold mb-4">Simple, Honest Pricing</h2>
                     <h3 className="text-2xl md:text-3xl font-medium font-syne mb-6">
@@ -79,13 +88,28 @@ const Pricing: React.FC = () => {
                             )}
 
                             <div className="mb-8">
-                                <h4 className="text-base font-semibold font-syne text-white mb-2">{plan.name}</h4>
+                                <div className="flex items-center gap-3 mb-3">
+                                    <h4 className="text-base font-semibold font-syne text-white">{plan.name}</h4>
+                                    <span className="text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-full border border-secondary/30 bg-secondary/10 text-secondary">
+                                        {plan.pages}
+                                    </span>
+                                </div>
                                 <div className="flex items-baseline gap-1">
                                     <span className="text-4xl font-bold text-white">
                                         {plan.price !== "Custom" ? `$${plan.price}` : "Custom"}
                                     </span>
                                     {plan.price !== "Custom" && <span className="text-gray-400">/project</span>}
                                 </div>
+                                {plan.maintenanceFee && (
+                                    <p className="mt-2 text-xs text-gray-500 font-space-grotesk">
+                                        + <span className="text-gray-400 font-semibold">${plan.maintenanceFee}/mo</span> optional maintenance
+                                    </p>
+                                )}
+                                {plan.price === "Custom" && (
+                                    <p className="mt-2 text-xs text-gray-500 font-space-grotesk">
+                                        Maintenance fee <span className="text-gray-400 font-semibold">negotiated</span> per scope
+                                    </p>
+                                )}
                                 <p className="mt-4 text-gray-400 font-space-grotesk">{plan.description}</p>
                             </div>
 

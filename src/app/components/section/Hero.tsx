@@ -102,7 +102,7 @@ const Hero: React.FC = () => {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="z-10 px-6 py-2 rounded-full border border-secondary/30 bg-secondary/5 text-xs md:text-sm font-semibold tracking-wider text-secondary shadow-[0_0_15px_rgba(156,254,202,0.08)] backdrop-blur-sm"
+        className="z-10 px-3 sm:px-6 mx-3 py-2 rounded-full border border-secondary/30 bg-secondary/5 text-xs md:text-sm font-semibold tracking-wider text-secondary shadow-[0_0_15px_rgba(156,254,202,0.08)] backdrop-blur-sm"
       >
         ✨ We Turn Your Business Ideas Into Digital Reality
       </motion.div>

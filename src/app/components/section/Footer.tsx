@@ -22,13 +22,13 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="relative bg-black border-t border-white/10 pt-24 pb-12 overflow-hidden">
+    <footer className="relative bg-black border-t border-white/10 pt-24 sm:pt-24 pb-8 md:pb-12 overflow-hidden">
       {/* Accent glow elements */}
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-secondary/5 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute top-0 left-0 w-[300px] h-[300px] bg-primary/5 rounded-full blur-[140px] pointer-events-none" />
       
-      <div className="max-w-7xl mx-auto px-10 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 pb-16">
+      <div className="max-w-7xl mx-auto px-4 md:px-10 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 pb-4 sm:pb-16">
           
           {/* Brand Col */}
           <div className="lg:col-span-2 space-y-6">
@@ -65,103 +65,108 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Capabilities Col */}
-          <div>
-            <h4 className="text-sm font-semibold font-syne uppercase tracking-wider text-white mb-6">
-              Our Services
-            </h4>
-            <ul className="space-y-4 text-sm font-space-grotesk text-gray-400">
-              <li>
-                <Link 
-                  href="/#services" 
-                  onClick={(e) => handleScroll(e, "/#services")}
-                  className="hover:text-secondary hover:underline transition-colors"
-                >
-                  Websites & Web Apps
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/#services" 
-                  onClick={(e) => handleScroll(e, "/#services")}
-                  className="hover:text-secondary hover:underline transition-colors"
-                >
-                  Mobile Apps
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/#services" 
-                  onClick={(e) => handleScroll(e, "/#services")}
-                  className="hover:text-secondary hover:underline transition-colors"
-                >
-                  Online Stores
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/#services" 
-                  onClick={(e) => handleScroll(e, "/#services")}
-                  className="hover:text-secondary hover:underline transition-colors"
-                >
-                  Get Found on Google
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/#services" 
-                  onClick={(e) => handleScroll(e, "/#services")}
-                  className="hover:text-secondary hover:underline transition-colors"
-                >
-                  Ongoing Support
-                </Link>
-              </li>
-            </ul>
-          </div>
+          {/* Services + Explore — side by side on mobile */}
+          <div className="flex flex-row gap-8 md:contents">
 
-          {/* Explore Col */}
-          <div>
-            <h4 className="text-sm font-semibold font-syne uppercase tracking-wider text-white mb-6">
-              Explore
-            </h4>
-            <ul className="space-y-4 text-sm font-space-grotesk text-gray-400">
-              <li>
-                <Link 
-                  href="/#results" 
-                  onClick={(e) => handleScroll(e, "/#results")}
-                  className="hover:text-secondary hover:underline transition-colors"
-                >
-                  Case Studies
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/#pricing" 
-                  onClick={(e) => handleScroll(e, "/#pricing")}
-                  className="hover:text-secondary hover:underline transition-colors"
-                >
-                  Investment Plans
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/#reviews" 
-                  onClick={(e) => handleScroll(e, "/#reviews")}
-                  className="hover:text-secondary hover:underline transition-colors"
-                >
-                  Partnerships
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/#contact" 
-                  onClick={(e) => handleScroll(e, "/#contact")}
-                  className="hover:text-secondary hover:underline transition-colors"
-                >
-                  Hire Us
-                </Link>
-              </li>
-            </ul>
+            {/* Capabilities Col */}
+            <div className="flex-1">
+              <h4 className="text-sm font-semibold font-syne uppercase tracking-wider text-white mb-6">
+                Our Services
+              </h4>
+              <ul className="space-y-4 text-sm font-space-grotesk text-gray-400">
+                <li>
+                  <Link 
+                    href="/#services" 
+                    onClick={(e) => handleScroll(e, "/#services")}
+                    className="hover:text-secondary hover:underline transition-colors"
+                  >
+                    Websites & Web Apps
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    href="/#services" 
+                    onClick={(e) => handleScroll(e, "/#services")}
+                    className="hover:text-secondary hover:underline transition-colors"
+                  >
+                    Mobile Apps
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    href="/#services" 
+                    onClick={(e) => handleScroll(e, "/#services")}
+                    className="hover:text-secondary hover:underline transition-colors"
+                  >
+                    Online Stores
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    href="/#services" 
+                    onClick={(e) => handleScroll(e, "/#services")}
+                    className="hover:text-secondary hover:underline transition-colors"
+                  >
+                    Get Found on Google
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    href="/#services" 
+                    onClick={(e) => handleScroll(e, "/#services")}
+                    className="hover:text-secondary hover:underline transition-colors"
+                  >
+                    Ongoing Support
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Explore Col */}
+            <div className="flex-1">
+              <h4 className="text-sm font-semibold font-syne uppercase tracking-wider text-white mb-6">
+                Explore
+              </h4>
+              <ul className="space-y-4 text-sm font-space-grotesk text-gray-400">
+                <li>
+                  <Link 
+                    href="/#results" 
+                    onClick={(e) => handleScroll(e, "/#results")}
+                    className="hover:text-secondary hover:underline transition-colors"
+                  >
+                    Case Studies
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    href="/#pricing" 
+                    onClick={(e) => handleScroll(e, "/#pricing")}
+                    className="hover:text-secondary hover:underline transition-colors"
+                  >
+                    Investment Plans
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    href="/#reviews" 
+                    onClick={(e) => handleScroll(e, "/#reviews")}
+                    className="hover:text-secondary hover:underline transition-colors"
+                  >
+                    Partnerships
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    href="/#contact" 
+                    onClick={(e) => handleScroll(e, "/#contact")}
+                    className="hover:text-secondary hover:underline transition-colors"
+                  >
+                    Hire Us
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
           </div>
 
           {/* Stay Connected Col */}

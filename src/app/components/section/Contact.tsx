@@ -26,8 +26,8 @@ const CONTACT_INFO = [
 
 const Contact: React.FC = () => {
   return (
-    <section id="contact" className="py-24 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-10 relative z-10">
+    <section id="contact" className="pb-12 sm:pb-24 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 md:px-10 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
           {/* Left Side: Info */}
           <div className="flex flex-col justify-center">
@@ -60,7 +60,7 @@ const Contact: React.FC = () => {
             {/* Decorative glow behind form */}
             <div className="absolute -inset-4 bg-secondary/5 rounded-[40px] blur-3xl pointer-events-none" />
 
-            <form className="relative bg-white/5 border border-white/10 p-10 rounded-[32px] backdrop-blur-xl shadow-2xl">
+            <form className="relative bg-white/5 border border-secondary/10 p-6 md:p-10 rounded-2xl md:rounded-[32px] backdrop-blur-xl shadow-2xl">
               <div className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
@@ -68,7 +68,7 @@ const Contact: React.FC = () => {
                     <input
                       type="text"
                       placeholder="John Doe"
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-secondary/50 focus:ring-1 focus:ring-secondary/50 transition-all"
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 md:px-5 py-3 md:py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-secondary/50 focus:ring-1 focus:ring-secondary/50 transition-all"
                     />
                   </div>
                   <div className="space-y-2">
@@ -76,7 +76,7 @@ const Contact: React.FC = () => {
                     <input
                       type="email"
                       placeholder="john@example.com"
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-secondary/50 focus:ring-1 focus:ring-secondary/50 transition-all"
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 md:px-5 py-3 md:py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-secondary/50 focus:ring-1 focus:ring-secondary/50 transition-all"
                     />
                   </div>
                 </div>
@@ -87,12 +87,12 @@ const Contact: React.FC = () => {
                     <input
                       type="tel"
                       placeholder="+1 (555) 000-0000"
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-secondary/50 focus:ring-1 focus:ring-secondary/50 transition-all"
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 md:px-5 py-3 md:py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-secondary/50 focus:ring-1 focus:ring-secondary/50 transition-all"
                     />
                   </div>
                   <div className="space-y-2">
                     <label className="text-xs font-bold text-gray-400 uppercase tracking-widest ml-1">Project Type</label>
-                    <select className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-secondary/50 focus:ring-1 focus:ring-secondary/50 transition-all appearance-none cursor-pointer">
+                    <select className="w-full bg-white/5 border border-white/10 rounded-xl px-4 md:px-5 py-3 md:py-4 text-white focus:outline-none focus:border-secondary/50 focus:ring-1 focus:ring-secondary/50 transition-all appearance-none cursor-pointer">
                       <option className="bg-black text-white">Custom Software Development</option>
                       <option className="bg-black text-white">Mobile App Architecture</option>
                       <option className="bg-black text-white">SEO & Marketing Domination</option>
@@ -107,7 +107,7 @@ const Contact: React.FC = () => {
                   <textarea
                     rows={4}
                     placeholder="Tell us about your goals and technical requirements..."
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-secondary/50 focus:ring-1 focus:ring-secondary/50 transition-all resize-none"
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 md:px-5 py-3 md:py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-secondary/50 focus:ring-1 focus:ring-secondary/50 transition-all resize-none"
                   ></textarea>
                 </div>
 

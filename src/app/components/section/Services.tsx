@@ -68,11 +68,11 @@ const SERVICES = [
 
 const Services: React.FC = () => {
   return (
-    <section id="services" className="py-24 relative overflow-hidden bg-black">
+    <section id="services" className="pt-12 sm:pt-16 relative overflow-hidden bg-black">
       {/* Subtle background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-secondary/5 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-10 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 md:px-10 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-xs uppercase tracking-[0.3em] text-secondary font-semibold mb-4">What We Do For You</h2>
           <h3 className="text-2xl md:text-3xl font-medium font-syne mb-6">
