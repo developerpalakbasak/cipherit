@@ -1,4 +1,6 @@
+"use client";
 import React from 'react';
+import Link from 'next/link';
 
 const PLANS = [
     {
@@ -13,7 +15,6 @@ const PLANS = [
             "Works on All Phones & Tablets",
             "Show Up on Google (Basic SEO)",
             "Contact Form & Social Links",
-            "1 Month of Free Support"
         ],
         buttonText: "Get Started",
         recommended: false
@@ -30,8 +31,8 @@ const PLANS = [
             "Online Store or Booking System",
             "Get Found on Google (Full SEO)",
             "Accept Payments Online",
-            "Priority Support, Anytime",
-            "Monthly Performance Report"
+            "Priority Support (Up to 3 Months)",
+            "Monthly Performance Report (Up to 3 Months)"
         ],
         buttonText: "Start Growing",
         recommended: true
@@ -124,15 +125,61 @@ const Pricing: React.FC = () => {
                                 ))}
                             </ul>
 
-                            <button className={`w-full py-4 rounded-xl font-bold transition-all duration-300 ${
+                            <Link 
+                                href="#contact"
+                                onClick={() => {
+                                    window.dispatchEvent(new CustomEvent('selectPlan', { detail: plan.name }));
+                                    const contactSection = document.getElementById('contact');
+                                    if (contactSection) {
+                                        contactSection.scrollIntoView({ behavior: 'smooth' });
+                                    }
+                                }}
+                                className={`block text-center w-full py-4 rounded-xl font-bold transition-all duration-300 ${
                                 plan.recommended 
                                 ? "bg-secondary text-black hover:brightness-110 shadow-[0_0_20px_rgba(156,254,202,0.2)]" 
                                 : "bg-white/10 text-white hover:bg-white/20 border border-white/10"
                             }`}>
                                 {plan.buttonText}
-                            </button>
+                            </Link>
                         </div>
                     ))}
+                </div>
+
+                <div className="mt-16 max-w-5xl mx-auto bg-white/5 border border-white/10 rounded-3xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden group">
+                    <div className="absolute inset-0 bg-gradient-to-r from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div className="flex-1 text-center md:text-left relative z-10">
+                        <h4 className="text-lg md:text-xl font-syne font-bold text-white mb-2">Our Development Promise</h4>
+                        <p className="text-gray-400 font-space-grotesk text-sm max-w-md mx-auto md:mx-0">
+                            We want you to be 100% satisfied. That's why every project comes with standard guarantees to give you peace of mind.
+                        </p>
+                    </div>
+                    
+                    <div className="flex flex-col sm:flex-row gap-4 relative z-10 w-full md:w-auto">
+                        <div className="flex items-center gap-4 bg-white/5 rounded-2xl px-5 py-4 border border-white/5 w-full sm:w-auto transition-transform hover:-translate-y-1 duration-300">
+                            <div className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9cfeca" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
+                                </svg>
+                            </div>
+                            <div className="text-left">
+                                <span className="block text-sm font-bold text-white">3 Months</span>
+                                <span className="block text-xs text-gray-400">Free Support</span>
+                            </div>
+                        </div>
+                        
+                        <div className="flex items-center gap-4 bg-white/5 rounded-2xl px-5 py-4 border border-white/5 w-full sm:w-auto transition-transform hover:-translate-y-1 duration-300">
+                            <div className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9cfeca" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                    <path d="M21 2v6h-6"/><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 2v6h6"/>
+                                </svg>
+                            </div>
+                            <div className="text-left">
+                                <span className="block text-sm font-bold text-white">Unlimited</span>
+                                <span className="block text-xs text-gray-400">Revisions During Dev</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

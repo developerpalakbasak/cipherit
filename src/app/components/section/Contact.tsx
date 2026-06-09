@@ -1,4 +1,5 @@
-import React from 'react';
+"use client";
+import React, { useState, useEffect } from 'react';
 
 const CONTACT_INFO = [
   {
@@ -23,6 +24,202 @@ const CONTACT_INFO = [
     )
   }
 ];
+
+const ContactFormInner = () => {
+  const [selectedPlan, setSelectedPlan] = useState("");
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    phone: "",
+    projectType: "Custom Software Development",
+    message: ""
+  });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  useEffect(() => {
+    const handleSelectPlan = (e: CustomEvent) => {
+      setSelectedPlan(e.detail);
+    };
+
+    window.addEventListener('selectPlan', handleSelectPlan as EventListener);
+    
+    return () => {
+      window.removeEventListener('selectPlan', handleSelectPlan as EventListener);
+    };
+  }, []);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+    setErrorMessage("");
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          plan: selectedPlan
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Something went wrong');
+      }
+
+      setStatus("success");
+      setFormData({
+        fullName: "",
+        email: "",
+        phone: "",
+        projectType: "Custom Software Development",
+        message: ""
+      });
+      setSelectedPlan("");
+      
+      // Reset success message after 5 seconds
+      setTimeout(() => {
+        setStatus("idle");
+      }, 5000);
+    } catch (error: any) {
+      setStatus("error");
+      setErrorMessage(error.message || 'Something went wrong');
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="relative bg-white/5 border border-secondary/10 p-6 md:p-10 rounded-2xl md:rounded-[32px] backdrop-blur-xl shadow-2xl">
+      <div className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="space-y-2">
+            <label className="text-xs font-bold text-gray-400 uppercase tracking-widest ml-1">Full Name</label>
+            <input
+              type="text"
+              name="fullName"
+              value={formData.fullName}
+              onChange={handleChange}
+              required
+              placeholder="John Doe"
+              className="w-full bg-white/5 border border-white/10 rounded-xl px-4 md:px-5 py-3 md:py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-secondary/50 focus:ring-1 focus:ring-secondary/50 transition-all"
+            />
+          </div>
+          <div className="space-y-2">
+            <label className="text-xs font-bold text-gray-400 uppercase tracking-widest ml-1">Email Address</label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              placeholder="john@example.com"
+              className="w-full bg-white/5 border border-white/10 rounded-xl px-4 md:px-5 py-3 md:py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-secondary/50 focus:ring-1 focus:ring-secondary/50 transition-all"
+            />
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="space-y-2">
+            <label className="text-xs font-bold text-gray-400 uppercase tracking-widest ml-1">Phone Number (Optional)</label>
+            <input
+              type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              placeholder="+1 (555) 000-0000"
+              className="w-full bg-white/5 border border-white/10 rounded-xl px-4 md:px-5 py-3 md:py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-secondary/50 focus:ring-1 focus:ring-secondary/50 transition-all"
+            />
+          </div>
+          <div className="space-y-2">
+            <label className="text-xs font-bold text-gray-400 uppercase tracking-widest ml-1">Interested Plan</label>
+            <select 
+              value={selectedPlan}
+              onChange={(e) => setSelectedPlan(e.target.value)}
+              className="w-full bg-white/5 border border-white/10 rounded-xl px-4 md:px-5 py-3 md:py-4 text-white focus:outline-none focus:border-secondary/50 focus:ring-1 focus:ring-secondary/50 transition-all appearance-none cursor-pointer"
+            >
+              <option value="" className="bg-black text-white">Not Sure Yet</option>
+              <option value="Starter" className="bg-black text-white">Starter ($799)</option>
+              <option value="Growth" className="bg-black text-white">Growth ($2,499)</option>
+              <option value="Enterprise" className="bg-black text-white">Enterprise (Custom)</option>
+            </select>
+          </div>
+        </div>
+
+        <div className="space-y-2">
+          <label className="text-xs font-bold text-gray-400 uppercase tracking-widest ml-1">Project Type</label>
+          <select 
+            name="projectType"
+            value={formData.projectType}
+            onChange={handleChange}
+            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 md:px-5 py-3 md:py-4 text-white focus:outline-none focus:border-secondary/50 focus:ring-1 focus:ring-secondary/50 transition-all appearance-none cursor-pointer"
+          >
+            <option value="Custom Software Development" className="bg-black text-white">Custom Software Development</option>
+            <option value="Mobile App Architecture" className="bg-black text-white">Mobile App Architecture</option>
+            <option value="SEO & Marketing Domination" className="bg-black text-white">SEO & Marketing Domination</option>
+            <option value="E-commerce Transformation" className="bg-black text-white">E-commerce Transformation</option>
+            <option value="Maintenance & Security" className="bg-black text-white">Maintenance & Security</option>
+          </select>
+        </div>
+
+        <div className="space-y-2">
+          <label className="text-xs font-bold text-gray-400 uppercase tracking-widest ml-1">How can we help?</label>
+          <textarea
+            rows={4}
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            required
+            placeholder="Tell us about your goals and technical requirements..."
+            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 md:px-5 py-3 md:py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-secondary/50 focus:ring-1 focus:ring-secondary/50 transition-all resize-y min-h-[120px] max-h-[400px] [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-white/5 [&::-webkit-scrollbar-thumb]:bg-secondary/30 hover:[&::-webkit-scrollbar-thumb]:bg-secondary/50 [&::-webkit-scrollbar-thumb]:rounded-full"
+          ></textarea>
+        </div>
+
+        {status === "error" && (
+          <div className="p-4 bg-red-500/10 border border-red-500/50 rounded-xl text-red-400 text-sm">
+            {errorMessage}
+          </div>
+        )}
+
+        {status === "success" && (
+          <div className="p-4 bg-secondary/10 border border-secondary/50 rounded-xl text-secondary text-sm">
+            Message sent successfully! We'll be in touch shortly.
+          </div>
+        )}
+
+        <button
+          type="submit"
+          disabled={status === "loading"}
+          className="btn-primary w-full py-5 rounded-2xl text-lg font-bold shadow-[0_0_30px_rgba(156,254,202,0.1)] hover:shadow-[0_0_40px_rgba(156,254,202,0.3)] disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+        >
+          {status === "loading" ? (
+            <>
+              <svg className="animate-spin h-5 w-5 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+              Sending...
+            </>
+          ) : (
+            "Send My Message — It's Free"
+          )}
+        </button>
+
+        <p className="text-center text-xs text-gray-500 font-space-grotesk mt-6">
+          🔒 Your information is private and will never be shared.
+        </p>
+      </div>
+    </form>
+  );
+};
 
 const Contact: React.FC = () => {
   return (
@@ -60,69 +257,7 @@ const Contact: React.FC = () => {
             {/* Decorative glow behind form */}
             <div className="absolute -inset-4 bg-secondary/5 rounded-[40px] blur-3xl pointer-events-none" />
 
-            <form className="relative bg-white/5 border border-secondary/10 p-6 md:p-10 rounded-2xl md:rounded-[32px] backdrop-blur-xl shadow-2xl">
-              <div className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-xs font-bold text-gray-400 uppercase tracking-widest ml-1">Full Name</label>
-                    <input
-                      type="text"
-                      placeholder="John Doe"
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 md:px-5 py-3 md:py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-secondary/50 focus:ring-1 focus:ring-secondary/50 transition-all"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-xs font-bold text-gray-400 uppercase tracking-widest ml-1">Email Address</label>
-                    <input
-                      type="email"
-                      placeholder="john@example.com"
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 md:px-5 py-3 md:py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-secondary/50 focus:ring-1 focus:ring-secondary/50 transition-all"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-xs font-bold text-gray-400 uppercase tracking-widest ml-1">Phone Number (Optional)</label>
-                    <input
-                      type="tel"
-                      placeholder="+1 (555) 000-0000"
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 md:px-5 py-3 md:py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-secondary/50 focus:ring-1 focus:ring-secondary/50 transition-all"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-xs font-bold text-gray-400 uppercase tracking-widest ml-1">Project Type</label>
-                    <select className="w-full bg-white/5 border border-white/10 rounded-xl px-4 md:px-5 py-3 md:py-4 text-white focus:outline-none focus:border-secondary/50 focus:ring-1 focus:ring-secondary/50 transition-all appearance-none cursor-pointer">
-                      <option className="bg-black text-white">Custom Software Development</option>
-                      <option className="bg-black text-white">Mobile App Architecture</option>
-                      <option className="bg-black text-white">SEO & Marketing Domination</option>
-                      <option className="bg-black text-white">E-commerce Transformation</option>
-                      <option className="bg-black text-white">Maintenance & Security</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-xs font-bold text-gray-400 uppercase tracking-widest ml-1">How can we help?</label>
-                  <textarea
-                    rows={4}
-                    placeholder="Tell us about your goals and technical requirements..."
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 md:px-5 py-3 md:py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-secondary/50 focus:ring-1 focus:ring-secondary/50 transition-all resize-none"
-                  ></textarea>
-                </div>
-
-                <button
-                  type="submit"
-                  className="btn-primary w-full py-5 rounded-2xl text-lg font-bold shadow-[0_0_30px_rgba(156,254,202,0.1)] hover:shadow-[0_0_40px_rgba(156,254,202,0.3)]"
-                >
-                  Send My Message — It's Free
-                </button>
-
-                <p className="text-center text-xs text-gray-500 font-space-grotesk mt-6">
-                  🔒 Your information is private and will never be shared.
-                </p>
-              </div>
-            </form>
+            <ContactFormInner />
           </div>
         </div>
       </div>
