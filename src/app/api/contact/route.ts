@@ -1,4 +1,6 @@
 import { NextResponse } from 'next/server';
+import Contact from '@/models/Contact';
+import { dbConnect } from '@/lib/mongoose';
 
 export async function POST(request: Request) {
   try {
@@ -13,9 +15,9 @@ export async function POST(request: Request) {
       );
     }
 
-    // TODO: Integrate with your preferred email provider (Resend, SendGrid, etc.)
-    // or save to a database.
-    console.log('Contact form submission received:', {
+    await dbConnect();
+
+    const newContact = await Contact.create({
       fullName,
       email,
       phone,
@@ -24,8 +26,6 @@ export async function POST(request: Request) {
       message,
     });
 
-    // Simulate network request processing
-    await new Promise((resolve) => setTimeout(resolve, 1000));
 
     return NextResponse.json(
       { success: true, message: 'Message sent successfully!' },
