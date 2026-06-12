@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Space_Grotesk, Syne } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/section/Navbar";
-import Footer from "./components/section/Footer";
-import CustomCursor from "./components/utils/CustomCursor";
-import Atmosphere from "./components/utils/Atmosphere";
+import Navbar from "@/components/section/Navbar";
+import Footer from "@/components/section/Footer";
+import CustomCursor from "@/components/utils/CustomCursor";
+import Atmosphere from "@/components/utils/Atmosphere";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

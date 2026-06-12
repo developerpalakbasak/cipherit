@@ -43,7 +43,7 @@ const Hero: React.FC = () => {
   return (
     <div 
       id='hero' 
-      className="relative flex flex-col gap-10 justify-center items-center pt-24 min-h-screen bg-black overflow-hidden"
+      className="relative flex flex-col justify-between items-center pt-28 pb-8 min-h-screen bg-black overflow-hidden"
     >
       {/* Background Cyber Grid lines */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f29370a_1px,transparent_1px),linear-gradient(to_bottom,#1f29370a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
@@ -97,76 +97,82 @@ const Hero: React.FC = () => {
         </motion.div>
       ))}
 
-      {/* Strategic Badge */}
-      <motion.div 
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="z-10 px-3 sm:px-6 mx-3 py-2 rounded-full border border-secondary/30 bg-secondary/5 text-xs md:text-sm font-semibold tracking-wider text-secondary shadow-[0_0_15px_rgba(156,254,202,0.08)] backdrop-blur-sm"
-      >
-        ✨ We Turn Your Business Ideas Into Digital Reality
-      </motion.div>
+      {/* Top spacer to balance layout vertically on large viewports */}
+      <div className="hidden md:block h-6" />
 
-      {/* Content Container */}
-      <div className="z-10 flex flex-col justify-center items-center text-center px-4 max-w-5xl">
-        <h1 className="text-3xl md:text-4xl font-semibold tracking-tight leading-[1.1] font-syne">
-          <motion.span
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="block text-white"
-          >
-            Your Business Deserves a
-          </motion.span>
-          <motion.span
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="block min-h-[75px] md:min-h-[90px] mt-2 bg-gradient-to-r from-secondary via-btn to-white bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(156,254,202,0.15)]"
-          >
-            <Typewriter quotes={quotes} className="text-secondary" />
-          </motion.span>
-        </h1>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
-          className="mt-6 text-base md:text-xl text-gray-400 max-w-2xl font-space-grotesk leading-relaxed"
+      {/* Main Content Group */}
+      <div className="z-10 flex-1 flex flex-col justify-center items-center text-center px-4 max-w-5xl gap-8 md:gap-10 w-full">
+        {/* Strategic Badge */}
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="px-3 sm:px-6 mx-3 py-2 rounded-full border border-secondary/30 bg-secondary/5 text-xs md:text-sm font-semibold tracking-wider text-secondary shadow-[0_0_15px_rgba(156,254,202,0.08)] backdrop-blur-sm"
         >
-          Whether you need a stunning website, a mobile app, or a complete online store — we build it for you, keep it running smoothly, and help more people discover your business online.
-        </motion.p>
-      </div>
+          ✨ We Turn Your Business Ideas Into Digital Reality
+        </motion.div>
 
-      {/* Actions */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.7 }}
-        className="z-10 w-full flex flex-col items-center text-center gap-4 px-4"
-      >
-        <Magnetic>
-          <Link
-            href="/#contact"
-            onClick={(e) => handleScroll(e, "/#contact")}
-            className="btn-primary flex items-center gap-3 px-10 py-5 rounded-2xl text-base font-bold shadow-[0_0_20px_rgba(58,231,181,0.2)] hover:shadow-[0_0_40px_rgba(58,231,181,0.45)] hover:scale-[1.03] transition-all"
+        {/* Content Container */}
+        <div className="flex flex-col justify-center items-center text-center w-full">
+          <h1 className="text-3xl md:text-4xl font-semibold tracking-tight leading-[1.1] font-syne">
+            <motion.span
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="block text-white"
+            >
+              Your Business Deserves a
+            </motion.span>
+            <motion.span
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="block min-h-[75px] md:min-h-[90px] mt-2 bg-gradient-to-r from-secondary via-btn to-white bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(156,254,202,0.15)]"
+            >
+              <Typewriter quotes={quotes} className="text-secondary" />
+            </motion.span>
+          </h1>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            className="mt-6 text-base md:text-xl text-gray-400 max-w-2xl font-space-grotesk leading-relaxed"
           >
-            <span>Get a Free Consultation</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" x2="19" y1="12" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </Link>
-        </Magnetic>
-        
-        <p className="text-xs md:text-sm text-gray-500 font-space-grotesk tracking-wide mt-2">
-          ✅ Free Consultation • No Commitment • Results Guaranteed
-        </p>
-      </motion.div>
+            Whether you need a stunning website, a mobile app, or a complete online store — we build it for you, keep it running smoothly, and help more people discover your business online.
+          </motion.p>
+        </div>
+
+        {/* Actions */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
+          className="w-full flex flex-col items-center text-center gap-4"
+        >
+          <Magnetic>
+            <Link
+              href="/#contact"
+              onClick={(e) => handleScroll(e, "/#contact")}
+              className="btn-primary flex items-center gap-3 px-10 py-5 rounded-2xl text-base font-bold shadow-[0_0_20px_rgba(58,231,181,0.2)] hover:shadow-[0_0_40px_rgba(58,231,181,0.45)] hover:scale-[1.03] transition-all"
+            >
+              <span>Get a Free Consultation</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" x2="19" y1="12" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </Link>
+          </Magnetic>
+          
+          <p className="text-xs md:text-sm text-gray-500 font-space-grotesk tracking-wide mt-2">
+            ✅ Free Consultation • No Commitment • Results Guaranteed
+          </p>
+        </motion.div>
+      </div>
 
       {/* bottom indicator */}
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.5 }}
         transition={{ delay: 1, duration: 1 }}
-        className="absolute bottom-6 flex flex-col items-center gap-1 cursor-pointer"
+        className="z-10 flex flex-col items-center gap-1 cursor-pointer mt-4"
         onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
       >
         <span className="text-[10px] uppercase tracking-[0.25em] text-gray-500 font-semibold">Scroll to explore</span>
