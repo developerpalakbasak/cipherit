@@ -5,6 +5,7 @@ import Navbar from "@/components/section/Navbar";
 import Footer from "@/components/section/Footer";
 import CustomCursor from "@/components/utils/CustomCursor";
 import Atmosphere from "@/components/utils/Atmosphere";
+import { Providers } from "@/components/theme";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -51,16 +52,19 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} ${syne.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-black text-white relative">
-        <CustomCursor />
-        <Atmosphere />
-        <Navbar />
-        <main className="flex-1 w-full relative z-10">
-          {children}
-        </main>
-        <Footer />
+      <body className="min-h-full flex flex-col bg-background text-foreground relative">
+        <Providers>
+          <CustomCursor />
+          <Atmosphere />
+          <Navbar />
+          <main className="flex-1 w-full relative z-10">
+            {children}
+          </main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

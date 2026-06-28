@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 html {
   scroll-behavior: smooth;
 }
@@ -7,6 +9,8 @@ html {
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --secondary: #059669;
+  --card: #ffffff;
 }
 
 @theme inline {
@@ -17,21 +21,21 @@ html {
 
   /* Custom colors from Appointwise */
   --color-primary: #07694a;
-  --color-secondary: #9cfeca;
+  --color-secondary: var(--secondary);
   --color-custom-red: #ff4a4a;
   --color-btn: #3ae7b5;
-  --color-card: #191919;
+  --color-card: var(--card);
   --color-input: #141414;
 
   --font-space-grotesk: var(--font-space-grotesk);
   --font-syne: var(--font-syne);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --secondary: #9cfeca;
+  --card: #050a07; /* Updated to exceptionally dark tone for uniformity */
 }
 
 body {

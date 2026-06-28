@@ -54,7 +54,7 @@ const Reviews: React.FC = () => {
                     <h3 className="text-2xl md:text-3xl font-medium font-syne mb-6">
                         Real People. <span className="text-secondary">Real Results.</span>
                     </h3>
-                    <p className="text-gray-400 max-w-2xl mx-auto text-lg font-space-grotesk">
+                    <p className="text-black dark:text-gray-400 max-w-2xl mx-auto text-lg font-space-grotesk">
                         Don't just take our word for it. Here's what business owners across different industries say about working with us.
                     </p>
                 </div>
@@ -63,15 +63,15 @@ const Reviews: React.FC = () => {
                     {REVIEWS.map((review, index) => (
                         <div 
                             key={index}
-                            className="group relative p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm transition-all duration-300 hover:border-secondary/50 hover:bg-white/10"
+                            className="group relative p-8 rounded-2xl border border-foreground/10 bg-foreground/5 backdrop-blur-sm transition-all duration-300 hover:border-secondary/50 hover:bg-foreground/10"
                         >
                             <div className="flex items-center gap-4 mb-6">
                                 <div className="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center text-secondary font-bold border border-secondary/30">
                                     {review.avatar}
                                 </div>
                                 <div>
-                                    <h4 className="font-semibold font-syne text-white">{review.name}</h4>
-                                    <p className="text-sm text-gray-500">{review.role}</p>
+                                    <h4 className="font-semibold font-syne text-foreground">{review.name}</h4>
+                                    <p className="text-sm text-black dark:text-gray-500">{review.role}</p>
                                 </div>
                             </div>
                             
@@ -81,7 +81,7 @@ const Reviews: React.FC = () => {
                                 ))}
                             </div>
 
-                            <p className="text-gray-300 font-space-grotesk leading-relaxed italic">
+                            <p className="text-black dark:text-gray-300 font-space-grotesk leading-relaxed italic">
                                 "{review.content}"
                             </p>
                             

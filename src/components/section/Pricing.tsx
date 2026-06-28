@@ -67,7 +67,7 @@ const Pricing: React.FC = () => {
                         You Know Exactly <br />
                         <span className="text-secondary">What You're Getting</span>
                     </h3>
-                    <p className="text-gray-400 max-w-2xl mx-auto text-lg font-space-grotesk">
+                    <p className="text-black dark:text-gray-400 max-w-2xl mx-auto text-lg font-space-grotesk">
                         No hidden fees. No confusing packages. Just clear, fair pricing that grows with your business.
                     </p>
                 </div>
@@ -78,8 +78,8 @@ const Pricing: React.FC = () => {
                             key={index}
                             className={`relative flex flex-col p-10 rounded-3xl border transition-all duration-500 hover:-translate-y-2 ${
                                 plan.recommended 
-                                ? "bg-white/10 border-secondary/50 shadow-[0_0_40px_rgba(156,254,202,0.1)] z-20" 
-                                : "bg-white/5 border-white/10 hover:border-white/20 z-10"
+                                ? "bg-foreground/10 border-secondary/50 shadow-[0_0_40px_rgba(156,254,202,0.1)] z-20" 
+                                : "bg-foreground/5 border-foreground/10 hover:border-foreground/20 z-10"
                             }`}
                         >
                             {plan.recommended && (
@@ -90,33 +90,33 @@ const Pricing: React.FC = () => {
 
                             <div className="mb-8">
                                 <div className="flex items-center gap-3 mb-3">
-                                    <h4 className="text-base font-semibold font-syne text-white">{plan.name}</h4>
+                                    <h4 className="text-base font-semibold font-syne text-foreground">{plan.name}</h4>
                                     <span className="text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-full border border-secondary/30 bg-secondary/10 text-secondary">
                                         {plan.pages}
                                     </span>
                                 </div>
                                 <div className="flex items-baseline gap-1">
-                                    <span className="text-4xl font-bold text-white">
+                                    <span className="text-4xl font-bold text-foreground">
                                         {plan.price !== "Custom" ? `$${plan.price}` : "Custom"}
                                     </span>
-                                    {plan.price !== "Custom" && <span className="text-gray-400">/project</span>}
+                                    {plan.price !== "Custom" && <span className="text-black dark:text-gray-400">/project</span>}
                                 </div>
                                 {plan.maintenanceFee && (
-                                    <p className="mt-2 text-xs text-gray-500 font-space-grotesk">
-                                        + <span className="text-gray-400 font-semibold">${plan.maintenanceFee}/mo</span> optional maintenance
+                                    <p className="mt-2 text-xs text-black dark:text-gray-500 font-space-grotesk">
+                                        + <span className="text-black dark:text-gray-400 font-semibold">${plan.maintenanceFee}/mo</span> optional maintenance
                                     </p>
                                 )}
                                 {plan.price === "Custom" && (
-                                    <p className="mt-2 text-xs text-gray-500 font-space-grotesk">
-                                        Maintenance fee <span className="text-gray-400 font-semibold">negotiated</span> per scope
+                                    <p className="mt-2 text-xs text-black dark:text-gray-500 font-space-grotesk">
+                                        Maintenance fee <span className="text-black dark:text-gray-400 font-semibold">negotiated</span> per scope
                                     </p>
                                 )}
-                                <p className="mt-4 text-gray-400 font-space-grotesk">{plan.description}</p>
+                                <p className="mt-4 text-black dark:text-gray-400 font-space-grotesk">{plan.description}</p>
                             </div>
 
                             <ul className="flex-1 space-y-4 mb-10">
                                 {plan.features.map((feature, i) => (
-                                    <li key={i} className="flex items-center gap-3 text-gray-300 font-space-grotesk">
+                                    <li key={i} className="flex items-center gap-3 text-black dark:text-gray-300 font-space-grotesk">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={plan.recommended ? "#9cfeca" : "currentColor"} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 opacity-70">
                                             <polyline points="20 6 9 17 4 12"/>
                                         </svg>
@@ -137,7 +137,7 @@ const Pricing: React.FC = () => {
                                 className={`block text-center w-full py-4 rounded-xl font-bold transition-all duration-300 ${
                                 plan.recommended 
                                 ? "bg-secondary text-black hover:brightness-110 shadow-[0_0_20px_rgba(156,254,202,0.2)]" 
-                                : "bg-white/10 text-white hover:bg-white/20 border border-white/10"
+                                : "bg-foreground/10 text-foreground hover:bg-foreground/20 border border-foreground/10"
                             }`}>
                                 {plan.buttonText}
                             </Link>
@@ -145,38 +145,38 @@ const Pricing: React.FC = () => {
                     ))}
                 </div>
 
-                <div className="mt-16 max-w-5xl mx-auto bg-white/5 border border-white/10 rounded-3xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden group">
+                <div className="mt-16 max-w-5xl mx-auto bg-foreground/5 border border-foreground/10 rounded-3xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden group">
                     <div className="absolute inset-0 bg-gradient-to-r from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     
                     <div className="flex-1 text-center md:text-left relative z-10">
-                        <h4 className="text-lg md:text-xl font-syne font-bold text-white mb-2">Our Development Promise</h4>
-                        <p className="text-gray-400 font-space-grotesk text-sm max-w-md mx-auto md:mx-0">
+                        <h4 className="text-lg md:text-xl font-syne font-bold text-foreground mb-2">Our Development Promise</h4>
+                        <p className="text-black dark:text-gray-400 font-space-grotesk text-sm max-w-md mx-auto md:mx-0">
                             We want you to be 100% satisfied. That's why every project comes with standard guarantees to give you peace of mind.
                         </p>
                     </div>
                     
                     <div className="flex flex-col sm:flex-row gap-4 relative z-10 w-full md:w-auto">
-                        <div className="flex items-center gap-4 bg-white/5 rounded-2xl px-5 py-4 border border-white/5 w-full sm:w-auto transition-transform hover:-translate-y-1 duration-300">
+                        <div className="flex items-center gap-4 bg-foreground/5 rounded-2xl px-5 py-4 border border-foreground/5 w-full sm:w-auto transition-transform hover:-translate-y-1 duration-300">
                             <div className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center shrink-0">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9cfeca" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
                                 </svg>
                             </div>
                             <div className="text-left">
-                                <span className="block text-sm font-bold text-white">3 Months</span>
-                                <span className="block text-xs text-gray-400">Free Support</span>
+                                <span className="block text-sm font-bold text-foreground">3 Months</span>
+                                <span className="block text-xs text-black dark:text-gray-400">Free Support</span>
                             </div>
                         </div>
                         
-                        <div className="flex items-center gap-4 bg-white/5 rounded-2xl px-5 py-4 border border-white/5 w-full sm:w-auto transition-transform hover:-translate-y-1 duration-300">
+                        <div className="flex items-center gap-4 bg-foreground/5 rounded-2xl px-5 py-4 border border-foreground/5 w-full sm:w-auto transition-transform hover:-translate-y-1 duration-300">
                             <div className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center shrink-0">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9cfeca" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                     <path d="M21 2v6h-6"/><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 2v6h6"/>
                                 </svg>
                             </div>
                             <div className="text-left">
-                                <span className="block text-sm font-bold text-white">Unlimited</span>
-                                <span className="block text-xs text-gray-400">Revisions During Dev</span>
+                                <span className="block text-sm font-bold text-foreground">Unlimited</span>
+                                <span className="block text-xs text-black dark:text-gray-400">Revisions During Dev</span>
                             </div>
                         </div>
                     </div>

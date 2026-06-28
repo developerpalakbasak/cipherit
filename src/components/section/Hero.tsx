@@ -43,7 +43,7 @@ const Hero: React.FC = () => {
   return (
     <div 
       id='hero' 
-      className="relative flex flex-col justify-between items-center pt-28 pb-8 min-h-screen bg-black overflow-hidden"
+      className="relative flex flex-col justify-between items-center pt-28 pb-8 min-h-screen bg-background overflow-hidden"
     >
       {/* Background Cyber Grid lines */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f29370a_1px,transparent_1px),linear-gradient(to_bottom,#1f29370a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
@@ -59,7 +59,7 @@ const Hero: React.FC = () => {
       {floatingTags.map((tag, idx) => (
         <motion.div
           key={idx}
-          className="absolute hidden lg:flex items-center gap-2 px-4 py-2.5 rounded-xl border border-white/5 bg-white/5 backdrop-blur-md text-xs font-semibold text-gray-300 shadow-[0_0_15px_rgba(0,0,0,0.5)] z-20"
+          className="absolute hidden lg:flex items-center gap-2 px-4 py-2.5 rounded-xl border border-foreground/5 bg-foreground/5 backdrop-blur-md text-xs font-semibold text-black dark:text-gray-300 shadow-[0_0_15px_rgba(0,0,0,0.5)] z-20"
           style={{
             top: tag.top,
             left: tag.left,
@@ -119,7 +119,7 @@ const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="block text-white"
+              className="block text-foreground"
             >
               Your Business Deserves a
             </motion.span>
@@ -137,7 +137,7 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="mt-6 text-base md:text-xl text-gray-400 max-w-2xl font-space-grotesk leading-relaxed"
+            className="mt-6 text-base md:text-xl text-black dark:text-gray-400 max-w-2xl font-space-grotesk leading-relaxed"
           >
             Whether you need a stunning website, a mobile app, or a complete online store — we build it for you, keep it running smoothly, and help more people discover your business online.
           </motion.p>
@@ -161,7 +161,7 @@ const Hero: React.FC = () => {
             </Link>
           </Magnetic>
           
-          <p className="text-xs md:text-sm text-gray-500 font-space-grotesk tracking-wide mt-2">
+          <p className="text-xs md:text-sm text-black dark:text-gray-500 font-space-grotesk tracking-wide mt-2">
             ✅ Free Consultation • No Commitment • Results Guaranteed
           </p>
         </motion.div>
@@ -175,7 +175,7 @@ const Hero: React.FC = () => {
         className="z-10 flex flex-col items-center gap-1 cursor-pointer mt-4"
         onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
       >
-        <span className="text-[10px] uppercase tracking-[0.25em] text-gray-500 font-semibold">Scroll to explore</span>
+        <span className="text-[10px] uppercase tracking-[0.25em] text-black dark:text-gray-500 font-semibold">Scroll to explore</span>
         <motion.div 
           animate={{ y: [0, 6, 0] }}
           transition={{ repeat: Infinity, duration: 1.5 }}

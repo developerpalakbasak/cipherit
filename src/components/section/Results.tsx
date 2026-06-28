@@ -66,7 +66,7 @@ const AnimatedCounter = ({ value, delay }: { value: string, delay: number }) => 
 
 const Results: React.FC = () => {
     return (
-        <section id="results" className="py-20 relative overflow-hidden bg-black/40">
+        <section id="results" className="py-20 relative overflow-hidden bg-background/40">
             {/* Ambient background glow */}
             <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-secondary/5 rounded-full blur-[140px] pointer-events-none" />
 
@@ -78,7 +78,7 @@ const Results: React.FC = () => {
                     <h3 className="text-2xl md:text-3xl font-medium font-syne mb-6">
                         Numbers That <span className="text-secondary">Speak for Themselves</span>
                     </h3>
-                    <p className="text-gray-400 max-w-2xl mx-auto text-lg font-space-grotesk">
+                    <p className="text-black dark:text-gray-400 max-w-2xl mx-auto text-lg font-space-grotesk">
                         Every project we deliver is measured by one thing — how much it moves the needle for your business.
                     </p>
                 </div>
@@ -92,13 +92,13 @@ const Results: React.FC = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-80px" }}
                             transition={{ duration: 0.6, delay: index * 0.1 }}
-                            className=" p-2 md:p-8 rounded-2xl border border-white/5 bg-white/5 backdrop-blur-sm hover:border-secondary/30 transition-colors shadow-lg"
+                            className=" p-2 md:p-8 rounded-2xl border border-foreground/5 bg-foreground/5 backdrop-blur-sm hover:border-secondary/30 transition-colors shadow-lg"
                         >
                             <h4 className="text-2xl md:text-3xl font-semibold font-syne text-secondary mb-2 drop-shadow-[0_0_15px_rgba(156,254,202,0.15)] flex justify-center">
                                 <AnimatedCounter value={metric.value} delay={index * 0.15 + 0.3} />
                             </h4>
-                            <p className="text-white font-bold mb-2 uppercase tracking-widest text-xs">{metric.label}</p>
-                            <p className="text-gray-400 text-sm font-space-grotesk ">{metric.description}</p>
+                            <p className="text-foreground font-bold mb-2 uppercase tracking-widest text-xs">{metric.label}</p>
+                            <p className="text-black dark:text-gray-400 text-sm font-space-grotesk ">{metric.description}</p>
                         </motion.div>
                     ))}
                 </div>
@@ -127,7 +127,7 @@ const Results: React.FC = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.8, delay: index * 0.15 }}
-                            className="group relative flex flex-col p-8 rounded-3xl border border-white/10 bg-white/5 transition-all duration-500 hover:-translate-y-2 hover:bg-white/10 hover:border-secondary/30 shadow-2xl overflow-hidden"
+                            className="group relative flex flex-col p-8 rounded-3xl border border-foreground/10 bg-foreground/5 transition-all duration-500 hover:-translate-y-2 hover:bg-foreground/10 hover:border-secondary/30 shadow-2xl overflow-hidden"
                         >
                             {/* Accent line glow on card hover */}
                             <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-transparent via-secondary/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -137,19 +137,19 @@ const Results: React.FC = () => {
                                     {study.category}
                                 </span>
                             </div>
-                            <h4 className="text-lg font-semibold font-syne text-white mb-3 group-hover:text-secondary transition-colors">
+                            <h4 className="text-lg font-semibold font-syne text-foreground mb-3 group-hover:text-secondary transition-colors">
                                 {study.title}
                             </h4>
-                            <p className="text-base md:text-lg font-medium text-gray-200 mb-4 font-space-grotesk italic">
+                            <p className="text-base md:text-lg font-medium text-black dark:text-gray-200 mb-4 font-space-grotesk italic">
                                 "{study.outcome}"
                             </p>
-                            <p className="text-gray-400 font-space-grotesk mb-8 flex-1 leading-relaxed">
+                            <p className="text-black dark:text-gray-400 font-space-grotesk mb-8 flex-1 leading-relaxed">
                                 {study.description}
                             </p>
 
-                            <div className="flex flex-wrap gap-2 pt-6 border-t border-white/5">
+                            <div className="flex flex-wrap gap-2 pt-6 border-t border-foreground/5">
                                 {study.tags.map((tag, i) => (
-                                    <span key={i} className="text-[10px] uppercase font-bold text-gray-500 border border-white/10 bg-white/5 px-2.5 py-1 rounded transition-colors group-hover:border-secondary/20 group-hover:text-gray-400">
+                                    <span key={i} className="text-[10px] uppercase font-bold text-black dark:text-gray-500 border border-foreground/10 bg-foreground/5 px-2.5 py-1 rounded transition-colors group-hover:border-secondary/20 group-hover:text-black dark:group-hover:text-gray-400">
                                         {tag}
                                     </span>
                                 ))}

@@ -98,11 +98,11 @@ const ContactFormInner = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="relative bg-white/5 border border-secondary/10 p-6 md:p-10 rounded-2xl md:rounded-[32px] backdrop-blur-xl shadow-2xl">
+    <form onSubmit={handleSubmit} className="relative bg-foreground/5 border border-secondary/10 p-6 md:p-10 rounded-2xl md:rounded-[32px] backdrop-blur-xl shadow-2xl">
       <div className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-2">
-            <label className="text-xs font-bold text-gray-400 uppercase tracking-widest ml-1">Full Name</label>
+            <label className="text-xs font-bold text-black dark:text-gray-400 uppercase tracking-widest ml-1">Full Name</label>
             <input
               type="text"
               name="fullName"
@@ -110,11 +110,11 @@ const ContactFormInner = () => {
               onChange={handleChange}
               required
               placeholder="John Doe"
-              className="w-full bg-white/5 border border-white/10 rounded-xl px-4 md:px-5 py-3 md:py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-secondary/50 focus:ring-1 focus:ring-secondary/50 transition-all"
+              className="w-full bg-foreground/5 border border-foreground/10 rounded-xl px-4 md:px-5 py-3 md:py-4 text-foreground placeholder:text-black dark:placeholder:text-gray-600 focus:outline-none focus:border-secondary/50 focus:ring-1 focus:ring-secondary/50 transition-all"
             />
           </div>
           <div className="space-y-2">
-            <label className="text-xs font-bold text-gray-400 uppercase tracking-widest ml-1">Email Address</label>
+            <label className="text-xs font-bold text-black dark:text-gray-400 uppercase tracking-widest ml-1">Email Address</label>
             <input
               type="email"
               name="email"
@@ -122,56 +122,56 @@ const ContactFormInner = () => {
               onChange={handleChange}
               required
               placeholder="john@example.com"
-              className="w-full bg-white/5 border border-white/10 rounded-xl px-4 md:px-5 py-3 md:py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-secondary/50 focus:ring-1 focus:ring-secondary/50 transition-all"
+              className="w-full bg-foreground/5 border border-foreground/10 rounded-xl px-4 md:px-5 py-3 md:py-4 text-foreground placeholder:text-black dark:placeholder:text-gray-600 focus:outline-none focus:border-secondary/50 focus:ring-1 focus:ring-secondary/50 transition-all"
             />
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-2">
-            <label className="text-xs font-bold text-gray-400 uppercase tracking-widest ml-1">Phone Number (Optional)</label>
+            <label className="text-xs font-bold text-black dark:text-gray-400 uppercase tracking-widest ml-1">Phone Number (Optional)</label>
             <input
               type="tel"
               name="phone"
               value={formData.phone}
               onChange={handleChange}
               placeholder="+1 (555) 000-0000"
-              className="w-full bg-white/5 border border-white/10 rounded-xl px-4 md:px-5 py-3 md:py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-secondary/50 focus:ring-1 focus:ring-secondary/50 transition-all"
+              className="w-full bg-foreground/5 border border-foreground/10 rounded-xl px-4 md:px-5 py-3 md:py-4 text-foreground placeholder:text-black dark:placeholder:text-gray-600 focus:outline-none focus:border-secondary/50 focus:ring-1 focus:ring-secondary/50 transition-all"
             />
           </div>
           <div className="space-y-2">
-            <label className="text-xs font-bold text-gray-400 uppercase tracking-widest ml-1">Interested Plan</label>
+            <label className="text-xs font-bold text-black dark:text-gray-400 uppercase tracking-widest ml-1">Interested Plan</label>
             <select 
               value={selectedPlan}
               onChange={(e) => setSelectedPlan(e.target.value)}
-              className="w-full bg-white/5 border border-white/10 rounded-xl px-4 md:px-5 py-3 md:py-4 text-white focus:outline-none focus:border-secondary/50 focus:ring-1 focus:ring-secondary/50 transition-all appearance-none cursor-pointer"
+              className="w-full bg-foreground/5 border border-foreground/10 rounded-xl px-4 md:px-5 py-3 md:py-4 text-foreground focus:outline-none focus:border-secondary/50 focus:ring-1 focus:ring-secondary/50 transition-all appearance-none cursor-pointer"
             >
-              <option value="" className="bg-black text-white">Not Sure Yet</option>
-              <option value="Starter" className="bg-black text-white">Starter ($799)</option>
-              <option value="Growth" className="bg-black text-white">Growth ($2,499)</option>
-              <option value="Enterprise" className="bg-black text-white">Enterprise (Custom)</option>
+              <option value="" className="bg-background text-foreground">Not Sure Yet</option>
+              <option value="Starter" className="bg-background text-foreground">Starter ($799)</option>
+              <option value="Growth" className="bg-background text-foreground">Growth ($2,499)</option>
+              <option value="Enterprise" className="bg-background text-foreground">Enterprise (Custom)</option>
             </select>
           </div>
         </div>
 
         <div className="space-y-2">
-          <label className="text-xs font-bold text-gray-400 uppercase tracking-widest ml-1">Project Type</label>
+          <label className="text-xs font-bold text-black dark:text-gray-400 uppercase tracking-widest ml-1">Project Type</label>
           <select 
             name="projectType"
             value={formData.projectType}
             onChange={handleChange}
-            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 md:px-5 py-3 md:py-4 text-white focus:outline-none focus:border-secondary/50 focus:ring-1 focus:ring-secondary/50 transition-all appearance-none cursor-pointer"
+            className="w-full bg-foreground/5 border border-foreground/10 rounded-xl px-4 md:px-5 py-3 md:py-4 text-foreground focus:outline-none focus:border-secondary/50 focus:ring-1 focus:ring-secondary/50 transition-all appearance-none cursor-pointer"
           >
-            <option value="Custom Software Development" className="bg-black text-white">Custom Software Development</option>
-            <option value="Mobile App Architecture" className="bg-black text-white">Mobile App Architecture</option>
-            <option value="SEO & Marketing Domination" className="bg-black text-white">SEO & Marketing Domination</option>
-            <option value="E-commerce Transformation" className="bg-black text-white">E-commerce Transformation</option>
-            <option value="Maintenance & Security" className="bg-black text-white">Maintenance & Security</option>
+            <option value="Custom Software Development" className="bg-background text-foreground">Custom Software Development</option>
+            <option value="Mobile App Architecture" className="bg-background text-foreground">Mobile App Architecture</option>
+            <option value="SEO & Marketing Domination" className="bg-background text-foreground">SEO & Marketing Domination</option>
+            <option value="E-commerce Transformation" className="bg-background text-foreground">E-commerce Transformation</option>
+            <option value="Maintenance & Security" className="bg-background text-foreground">Maintenance & Security</option>
           </select>
         </div>
 
         <div className="space-y-2">
-          <label className="text-xs font-bold text-gray-400 uppercase tracking-widest ml-1">How can we help?</label>
+          <label className="text-xs font-bold text-black dark:text-gray-400 uppercase tracking-widest ml-1">How can we help?</label>
           <textarea
             rows={4}
             name="message"
@@ -179,7 +179,7 @@ const ContactFormInner = () => {
             onChange={handleChange}
             required
             placeholder="Tell us about your goals and technical requirements..."
-            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 md:px-5 py-3 md:py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-secondary/50 focus:ring-1 focus:ring-secondary/50 transition-all resize-y min-h-[120px] max-h-[400px] [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-white/5 [&::-webkit-scrollbar-thumb]:bg-secondary/30 hover:[&::-webkit-scrollbar-thumb]:bg-secondary/50 [&::-webkit-scrollbar-thumb]:rounded-full"
+            className="w-full bg-foreground/5 border border-foreground/10 rounded-xl px-4 md:px-5 py-3 md:py-4 text-foreground placeholder:text-black dark:placeholder:text-gray-600 focus:outline-none focus:border-secondary/50 focus:ring-1 focus:ring-secondary/50 transition-all resize-y min-h-[120px] max-h-[400px] [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-foreground/5 [&::-webkit-scrollbar-thumb]:bg-secondary/30 hover:[&::-webkit-scrollbar-thumb]:bg-secondary/50 [&::-webkit-scrollbar-thumb]:rounded-full"
           ></textarea>
         </div>
 
@@ -213,7 +213,7 @@ const ContactFormInner = () => {
           )}
         </button>
 
-        <p className="text-center text-xs text-gray-500 font-space-grotesk mt-6">
+        <p className="text-center text-xs text-black dark:text-gray-500 font-space-grotesk mt-6">
           🔒 Your information is private and will never be shared.
         </p>
       </div>
@@ -233,7 +233,7 @@ const Contact: React.FC = () => {
               We're Here to Help <br />
               <span className="text-secondary">Your Vision Grow</span>
             </h3>
-            <p className="text-gray-400 text-lg font-space-grotesk mb-12 max-w-lg leading-relaxed">
+            <p className="text-black dark:text-gray-400 text-lg font-space-grotesk mb-12 max-w-lg leading-relaxed">
               Have a question or a project in mind? We'd love to hear from you. Send us a message and let's start a conversation about how we can support your journey.
             </p>
 
@@ -244,8 +244,8 @@ const Contact: React.FC = () => {
                     {info.icon}
                   </div>
                   <div>
-                    <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-1">{info.label}</p>
-                    <p className="text-xl font-medium text-white">{info.value}</p>
+                    <p className="text-xs font-bold text-black dark:text-gray-500 uppercase tracking-widest mb-1">{info.label}</p>
+                    <p className="text-xl font-medium text-foreground">{info.value}</p>
                   </div>
                 </div>
               ))}

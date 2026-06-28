@@ -52,7 +52,7 @@ const Typewriter: React.FC<TypewriterProps> = ({
     return (
         <span className={className}>
             {text}
-            <span className="animate-pulse text-white">_</span>
+            <span className="animate-pulse text-foreground">_</span>
         </span>
     );
 }

@@ -9,7 +9,7 @@ import WorkFlows from "@/components/section/Workflow";
 
 export default function Home() {
   return (
-    <div className="w-full bg-black overflow-hidden">
+    <div className="w-full bg-background overflow-hidden">
       <Hero />
       <Services />
       <Results />

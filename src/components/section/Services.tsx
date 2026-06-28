@@ -68,7 +68,7 @@ const SERVICES = [
 
 const Services: React.FC = () => {
   return (
-    <section id="services" className="pt-12 sm:pt-16 relative overflow-hidden bg-black">
+    <section id="services" className="pt-12 sm:pt-16 relative overflow-hidden bg-background">
       {/* Subtle background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-secondary/5 rounded-full blur-[120px] pointer-events-none" />
 
@@ -78,7 +78,7 @@ const Services: React.FC = () => {
           <h3 className="text-2xl md:text-3xl font-medium font-syne mb-6">
             Everything Your Business Needs <span className="text-secondary">Online</span>
           </h3>
-          <p className="text-gray-400 max-w-2xl mx-auto text-lg font-space-grotesk">
+          <p className="text-black dark:text-gray-400 max-w-2xl mx-auto text-lg font-space-grotesk">
             From getting your first website live to growing a full digital business — we are the only team you will ever need.
           </p>
         </div>
@@ -87,7 +87,7 @@ const Services: React.FC = () => {
           {SERVICES.map((service, index) => (
             <div
               key={index}
-              className="group relative p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm transition-all duration-300 hover:border-secondary/50 hover:bg-white/10 hover:-translate-y-1 overflow-hidden"
+              className="group relative p-8 rounded-2xl border border-foreground/10 bg-foreground/5 backdrop-blur-sm transition-all duration-300 hover:border-secondary/50 hover:bg-foreground/10 hover:-translate-y-1 overflow-hidden"
             >
               {/* Card glow effect on hover */}
               <div className="absolute -inset-1 bg-gradient-to-r from-secondary/20 to-transparent opacity-0 group-hover:opacity-100 blur transition-opacity duration-300" />
@@ -99,7 +99,7 @@ const Services: React.FC = () => {
                 <h4 className="text-base font-semibold font-syne mb-3 group-hover:text-secondary transition-colors">
                   {service.title}
                 </h4>
-                <p className="text-gray-400 font-space-grotesk leading-relaxed">
+                <p className="text-black dark:text-gray-400 font-space-grotesk leading-relaxed">
                   {service.description}
                 </p>
               </div>
