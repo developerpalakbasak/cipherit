@@ -117,7 +117,7 @@ const Pricing: React.FC = () => {
                             <ul className="flex-1 space-y-4 mb-10">
                                 {plan.features.map((feature, i) => (
                                     <li key={i} className="flex items-center gap-3 text-black dark:text-gray-300 font-space-grotesk">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={plan.recommended ? "#9cfeca" : "currentColor"} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 opacity-70">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className={`shrink-0 opacity-70 ${plan.recommended ? "text-secondary" : ""}`}>
                                             <polyline points="20 6 9 17 4 12"/>
                                         </svg>
                                         <span>{feature}</span>
@@ -136,7 +136,7 @@ const Pricing: React.FC = () => {
                                 }}
                                 className={`block text-center w-full py-4 rounded-xl font-bold transition-all duration-300 ${
                                 plan.recommended 
-                                ? "bg-secondary text-black hover:brightness-110 shadow-[0_0_20px_rgba(156,254,202,0.2)]" 
+                                ? "rounded-xl px-6 py-3 text-sm font-semibold text-foreground transition bg-btn shadow-[0_0_2px_#9cfeca] hover:shadow-[0_0_6px_#9cfeca] hover:brightness-110" 
                                 : "bg-foreground/10 text-foreground hover:bg-foreground/20 border border-foreground/10"
                             }`}>
                                 {plan.buttonText}
@@ -157,8 +157,8 @@ const Pricing: React.FC = () => {
                     
                     <div className="flex flex-col sm:flex-row gap-4 relative z-10 w-full md:w-auto">
                         <div className="flex items-center gap-4 bg-foreground/5 rounded-2xl px-5 py-4 border border-foreground/5 w-full sm:w-auto transition-transform hover:-translate-y-1 duration-300">
-                            <div className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center shrink-0">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9cfeca" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <div className="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center text-secondary font-bold border border-secondary/30">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-secondary" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
                                 </svg>
                             </div>
@@ -169,8 +169,8 @@ const Pricing: React.FC = () => {
                         </div>
                         
                         <div className="flex items-center gap-4 bg-foreground/5 rounded-2xl px-5 py-4 border border-foreground/5 w-full sm:w-auto transition-transform hover:-translate-y-1 duration-300">
-                            <div className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center shrink-0">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9cfeca" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <div className="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center text-secondary font-bold border border-secondary/30">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-secondary" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                     <path d="M21 2v6h-6"/><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 2v6h6"/>
                                 </svg>
                             </div>

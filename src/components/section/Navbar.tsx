@@ -51,7 +51,7 @@ const Navbar: React.FC = () => {
 
     return (
         <>
-            <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-foreground/20 dark:bg-background/30 border-b border-foreground/20 dark:border-foreground/10">
+            <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-foreground/10 dark:bg-background/30 border-b border-foreground/20 dark:border-foreground/10">
                 <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 md:px-10 py-4">
                     {/* Logo */}
                     <Link href="/" aria-label="Go to homepage" className="flex items-center gap-0 group">
