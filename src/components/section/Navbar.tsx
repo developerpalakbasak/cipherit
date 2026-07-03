@@ -165,13 +165,13 @@ const Navbar: React.FC = () => {
                         ))}
                     </ul>
 
-                    <Link
+                    {/* <Link
                         href="/login"
                         onClick={() => setMenuOpen(false)}
                         className="w-full text-center rounded-full px-6 py-3 text-sm font-semibold text-foreground bg-black dark:bg-gray-700 border border-secondary shadow-[0_0_2px_#9cfeca] hover:shadow-[0_0_6px_#9cfeca] hover:brightness-110 transition"
                     >
                         Login
-                    </Link>
+                    </Link> */}
                 </div>
             </div>
         </>

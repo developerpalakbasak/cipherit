@@ -136,7 +136,7 @@ const Pricing: React.FC = () => {
                                 }}
                                 className={`block text-center w-full py-4 rounded-xl font-bold transition-all duration-300 ${
                                 plan.recommended 
-                                ? "rounded-xl px-6 py-3 text-sm font-semibold text-foreground transition bg-btn shadow-[0_0_2px_#9cfeca] hover:shadow-[0_0_6px_#9cfeca] hover:brightness-110" 
+                                ? "rounded-xl px-6 py-3 font-semibold text-white transition bg-btn shadow-[0_0_2px_#9cfeca] hover:shadow-[0_0_6px_#9cfeca] hover:brightness-110" 
                                 : "bg-foreground/10 text-foreground hover:bg-foreground/20 border border-foreground/10"
                             }`}>
                                 {plan.buttonText}

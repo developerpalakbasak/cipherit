@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -8,6 +8,41 @@ import Magnetic from '../utils/Magnetic';
 
 const Footer: React.FC = () => {
   const pathname = usePathname();
+
+  const [email, setEmail] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState<{ type: 'success' | 'error' | null, message: string }>({ type: null, message: '' });
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+
+    setLoading(true);
+    setStatus({ type: null, message: '' });
+
+    try {
+      const res = await fetch('/api/subscriber', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setStatus({ type: 'error', message: data.error || 'Something went wrong' });
+      } else {
+        setStatus({ type: 'success', message: data.message || 'Subscribed successfully!' });
+        setEmail('');
+      }
+    } catch (error) {
+      setStatus({ type: 'error', message: 'Something went wrong. Please try again.' });
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith("/#") && pathname === "/") {
@@ -177,18 +212,27 @@ const Footer: React.FC = () => {
             <p className="text-black dark:text-gray-400 text-xs font-space-grotesk leading-relaxed mb-4">
               Get practical tips on growing your business online, straight to your inbox. No spam, ever.
             </p>
-            <div className="space-y-3">
+            <form onSubmit={handleSubscribe} className="space-y-3 relative">
               <input 
                 type="email" 
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                disabled={loading}
+                required
                 placeholder="architect@company.com" 
-                className="w-full bg-foreground/5 border border-foreground/10 rounded-xl px-4 py-3 text-xs text-foreground placeholder:text-black dark:placeholder:text-gray-600 focus:outline-none focus:border-secondary transition-all"
+                className="w-full bg-foreground/5 border border-foreground/10 rounded-xl px-4 py-3 text-xs text-foreground placeholder:text-black dark:placeholder:text-gray-600 focus:outline-none focus:border-secondary transition-all disabled:opacity-50"
               />
               <Magnetic>
-                <button className="w-full btn-primary text-xs py-3 font-bold rounded-xl text-center shadow-none hover:shadow-[0_0_10px_#9cfeca] transition-all">
-                  Subscribe
+                <button type="submit" disabled={loading} className="w-full btn-primary text-xs py-3 font-bold rounded-xl text-center shadow-none hover:shadow-[0_0_10px_#9cfeca] transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+                  {loading ? 'Subscribing...' : 'Subscribe'}
                 </button>
               </Magnetic>
-            </div>
+              {status.message && (
+                <p className={`text-[10px] mt-1 ${status.type === 'error' ? 'text-red-500' : 'text-green-500'}`}>
+                  {status.message}
+                </p>
+              )}
+            </form>
           </div>
 
         </div>
